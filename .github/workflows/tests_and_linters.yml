@@ -1,0 +1,30 @@
+name: "CI with tests and linters"
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: "Rubocop, Brakeman, and Zeitwerk"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Lint Ruby files
+        run: bundle exec rubocop
+
+      - name: Security audit application code
+        run: bundle exec brakeman
+
+      - name: Check zeitwerk compatibility
+        run: bundle exec rails zeitwerk:check
