@@ -1,21 +1,23 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby '3.2.1'
 
-gem "rails", "~> 7.0.4", ">= 7.0.4.3"
-gem "sprockets-rails"
-gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
-gem "jsbundling-rails"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "jbuilder"
-gem "redis", "~> 4.0"
-gem "bcrypt", "~> 3.1.7"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootsnap", require: false
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootsnap', require: false
+gem 'cssbundling-rails'
+gem 'jbuilder'
+gem 'jsbundling-rails'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.0'
+gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
+gem 'redis', '~> 4.0'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -25,24 +27,24 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'rubocop-performance'
-  gem 'rubocop-rspec'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
 end
 
 group :development do
-  gem "web-console"
-  gem "rack-mini-profiler"
+  gem 'rack-mini-profiler'
+  gem 'web-console'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
 
 group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
