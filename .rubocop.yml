@@ -1,0 +1,18 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "app/assets/**/*"
+    - "tmp/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+    - "db/*"
+    - "public/**/*"
+    - "vendor/**/*"
+
+Style/Documentation:
+  Enabled: false
