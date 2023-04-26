@@ -8,6 +8,7 @@ ruby '3.2.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
@@ -18,7 +19,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'devise'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
