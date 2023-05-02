@@ -3,6 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+
 import ExampleComponentController from "./../../../app/components/example_component/example_component_controller"
 application.register("example", ExampleComponentController)
 
