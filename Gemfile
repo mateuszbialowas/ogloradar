@@ -19,6 +19,7 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'view_component'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -38,6 +39,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'actioncable'
+  gem 'listen'
+  gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
 
