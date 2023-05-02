@@ -2,7 +2,7 @@
 
 require 'stimulus/manifest'
 
-namespace :stimulus do
+namespace :stimulus do # rubocop:disable Metrics/BlockLength
   namespace :manifest do
     task display: :environment do
       components_manifest = Stimulus::Manifest.generate_from(Rails.root.join('app/components'))
