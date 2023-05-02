@@ -39,6 +39,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'actioncable'
+  gem 'listen'
+  gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
 

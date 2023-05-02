@@ -11,7 +11,7 @@ Run project in development mode
 rails generate component <ComponentName> <args> <options>
 
 Example:
-rails generate component Button text --stimulus
+rails generate component Button text --stimulus --preview
 ```
 ❗ Remember to run
 `rails stimulus:manifest:update`
