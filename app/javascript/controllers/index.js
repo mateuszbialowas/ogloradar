@@ -4,8 +4,5 @@
 
 import { application } from "./application"
 
-import ExampleComponent__ExampleComponentController from "./example_component/example_component_controller"
-application.register("example-component--example-component", ExampleComponent__ExampleComponentController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
