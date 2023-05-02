@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class BaseViewComponent < ViewComponentContrib::Base
+class BaseViewComponent < ViewComponent::Base
   include ApplicationHelper
 end
