@@ -32,7 +32,6 @@ group :development, :test do
   gem 'brakeman'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'erb_lint'
-  gem 'erb_lint', require: false
   gem 'pry'
   gem 'rubocop'
   gem 'rubocop-performance'
