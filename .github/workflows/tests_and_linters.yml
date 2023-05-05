@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
   lint:
-    name: "Rubocop, Brakeman, and Zeitwerk"
+    name: "Linters and security audit"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,8 +20,11 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Lint Ruby files
+      - name: Rubocop
         run: bundle exec rubocop
+
+      - name: ERB lint
+        run: bundle exec erblint --lint-all
 
       - name: Security audit application code
         run: bundle exec brakeman
