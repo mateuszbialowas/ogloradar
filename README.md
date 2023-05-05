@@ -6,6 +6,16 @@ Run project in development mode
 ./bin/dev
 ```
 
+## Run Rubocop and Linting
+### Rubocop
+```
+rubocop -A
+```
+### Erblint
+```
+erblint --lint-all --autocorrect
+```
+
 ## Generate Components
 ```
 rails generate component <ComponentName> <args> <options>
