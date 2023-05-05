@@ -81,4 +81,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: ogloradar_production
+  username: ogloradar
+  password: <%= ENV["OGLORADAR_DATABASE_PASSWORD"] %>
