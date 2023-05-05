@@ -10,22 +10,22 @@
           Utwórz konto
         </h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'space-y-4 md:space-y-6' }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render 'devise/shared/error_messages', resource: %>
 
           <div>
-            <%= f.label :email, 'Twój email', class: "block mb-2 text-sm font-medium text-gray-900" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
+            <%= f.label :email, 'Twój email', class: 'block mb-2 text-sm font-medium text-gray-900' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
           </div>
           <div>
             <%= f.label :password, 'Hasło', class: 'block mb-2 text-sm font-medium text-gray-900' %>
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
+            <%= f.password_field :password, autocomplete: 'new-password', placeholder: '••••••••', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
             <% if @minimum_password_length %>
               <%= content_tag :p, "Minimum #{@minimum_password_length} znaków", class: 'mt-2 text-sm text-gray-500 dark:text-gray-400' %>
             <% end %>
           </div>
           <div>
             <%= f.label :password_confirmation, 'Potwierdź hasło', class: 'block mb-2 text-sm font-medium text-gray-900' %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••", class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
+            <%= f.password_field :password_confirmation, autocomplete: 'new-password', placeholder: '••••••••', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
           </div>
           <div class="flex items-start">
             <div class="flex items-center h-5">
@@ -41,7 +41,7 @@
           </button>
           <p class="text-sm font-light text-gray-500">
             Masz już konto?
-            <%= render "devise/shared/links" %>
+            <%= render 'devise/shared/links' %>
           </p>
         <% end %>
       </div>
