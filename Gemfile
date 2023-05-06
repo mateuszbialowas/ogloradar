@@ -45,11 +45,11 @@ group :development do
   gem 'hotwire-livereload'
   gem 'i18n_generators'
   gem 'i18n-tasks'
+  gem 'letter_opener'
   gem 'listen'
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
-  gem "letter_opener"
 end
 
 group :test do
