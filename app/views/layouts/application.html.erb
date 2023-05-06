@@ -12,8 +12,9 @@
   </head>
 
   <body class="h-full">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |data| %>
+      <%= render FlashComponent.new(data: data) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
