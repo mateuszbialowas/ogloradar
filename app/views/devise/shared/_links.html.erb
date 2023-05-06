@@ -11,7 +11,7 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Nie dostałeś instrukcji potwierdzających?", new_confirmation_path(resource_name), class: 'font-medium text-primary-600 hover:underline' %><br />
+  <%= link_to 'Nie dostałeś instrukcji potwierdzających?', new_confirmation_path(resource_name), class: 'font-medium text-primary-600 hover:underline' %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>

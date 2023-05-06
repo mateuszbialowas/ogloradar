@@ -15,13 +15,13 @@
           <div>
             <%= render Forms::LabelComponent.new(form: f, method: :email, label: 'Twój email') %>
             <%= render Forms::EmailFieldComponent.new(form: f, method: :email) %>
-            <%= render Forms::ErrorsComponent.new(resource: resource, method: :email) %>
+            <%= render Forms::ErrorsComponent.new(resource:, method: :email) %>
           </div>
 
           <div>
             <%= render Forms::LabelComponent.new(form: f, method: :password, label: 'Hasło') %>
             <%= render Forms::PasswordFieldComponent.new(form: f, method: :password, placeholder: '••••••••') %>
-            <%= render Forms::ErrorsComponent.new(resource: resource, method: :password) %>
+            <%= render Forms::ErrorsComponent.new(resource:, method: :password) %>
             <% if @minimum_password_length %>
               <%= content_tag :p, "Minimum #{@minimum_password_length} znaków", class: 'mt-2 text-sm text-gray-500 dark:text-gray-400' %>
             <% end %>
@@ -30,7 +30,7 @@
           <div>
             <%= render Forms::LabelComponent.new(form: f, method: :password_confirmation, label: 'Potwierdź hasło') %>
             <%= render Forms::PasswordFieldComponent.new(form: f, method: :password_confirmation, placeholder: '••••••••') %>
-            <%= render Forms::ErrorsComponent.new(resource: resource, method: :password_confirmation) %>
+            <%= render Forms::ErrorsComponent.new(resource:, method: :password_confirmation) %>
           </div>
           <%= f.submit 'Zarejestruj się', class: 'w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center' %>
           <p class="text-sm font-light text-gray-500">
