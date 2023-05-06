@@ -1,6 +1,5 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%= render ExampleComponent.new(title: 'Hello, World!') %>
-
 <%= link_to 'Zaloguje sie', user_session_path %>
+<%= button_to 'Wyloguj sie', destroy_user_session_path, method: :delete %>

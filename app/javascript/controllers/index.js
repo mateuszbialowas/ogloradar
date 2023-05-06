@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import ExampleComponentController from "./../../components/example_component_controller"
-application.register("example-component", ExampleComponentController)
+import FlashComponentController from "./../../components/flash_component_controller"
+application.register("flash-component", FlashComponentController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

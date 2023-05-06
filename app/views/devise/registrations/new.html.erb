@@ -10,8 +10,6 @@
           Utwórz konto
         </h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'space-y-4 md:space-y-6' }) do |f| %>
-          <%= render 'devise/shared/error_messages', resource: %>
-
           <div>
             <%= render Forms::LabelComponent.new(form: f, method: :email, label: 'Twój email') %>
             <%= render Forms::EmailFieldComponent.new(form: f, method: :email) %>
