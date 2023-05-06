@@ -14,12 +14,16 @@
 
           <div>
             <%= f.label :email, 'Twój email', class: 'block mb-2 text-sm font-medium text-gray-900' %>
-            <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
+            <%= render Forms::EmailFieldComponent.new(form: f, method: :email) %>
             <% resource.errors[:email].each do |message| %>
               <%= content_tag :p, message, class: 'mt-2 text-sm text-red-600' %>
             <% end %>
-
           </div>
+
+
+
+
+
           <div>
             <%= f.label :password, 'Hasło', class: 'block mb-2 text-sm font-medium text-gray-900' %>
             <%= f.password_field :password, autocomplete: 'new-password', placeholder: '••••••••', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' %>
