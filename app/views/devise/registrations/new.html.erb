@@ -32,22 +32,7 @@
             <%= render Forms::PasswordFieldComponent.new(form: f, method: :password_confirmation, placeholder: '••••••••') %>
             <%= render Forms::ErrorsComponent.new(resource: resource, method: :password_confirmation) %>
           </div>
-
-          <div class="flex items-start">
-            <div class="flex items-center h-5">
-              <%= f.check_box :terms_accepted, class: 'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300', required: true %>
-<!--              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required="">-->
-            </div>
-            <div class="ml-3 text-sm">
-              <label for="terms" class="font-light text-gray-500">
-                Akceptuję
-                <%= link_to 'politykę prywatności', '#', class: 'font-medium text-primary-600 hover:underline' %>
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-            Zarejestruj się
-          </button>
+          <%= f.submit 'Zarejestruj się', class: 'w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center' %>
           <p class="text-sm font-light text-gray-500">
             Masz już konto?
             <%= render 'devise/shared/links' %>
