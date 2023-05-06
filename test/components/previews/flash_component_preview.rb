@@ -3,8 +3,8 @@
 class FlashComponentPreview < ViewComponent::Preview
   # @!group Sizes
 
-  def info
-    render(FlashComponent.new(data: ['info', 'This is an info message.']))
+  def notice
+    render(FlashComponent.new(data: ['notice', 'This is an notice message.']))
   end
 
   def success

@@ -2,11 +2,12 @@
 
 module Forms
   class EmailFieldComponent < BaseViewComponent
-    attr_reader :form, :method
+    attr_reader :form, :method, :value
 
-    def initialize(form:, method:)
+    def initialize(form:, method:, value: nil)
       @form = form
       @method = method.to_sym
+      @value = value
     end
   end
 end
