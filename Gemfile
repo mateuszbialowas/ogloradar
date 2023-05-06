@@ -40,6 +40,11 @@ group :development, :test do
   gem 'rubocop-rspec'
 end
 
+group :staging do
+  gem 'sentry-rails'
+  gem 'sentry-ruby'
+end
+
 group :development do
   gem 'actioncable'
   gem 'hotwire-livereload'
