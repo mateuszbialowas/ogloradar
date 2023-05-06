@@ -35,7 +35,8 @@
 
           <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required="">
+              <%= f.check_box :terms_accepted, class: 'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300', required: true %>
+<!--              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required="">-->
             </div>
             <div class="ml-3 text-sm">
               <label for="terms" class="font-light text-gray-500">
