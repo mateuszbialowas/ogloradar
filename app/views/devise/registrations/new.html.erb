@@ -15,9 +15,7 @@
           <div>
             <%= render Forms::LabelComponent.new(form: f, method: :email, label: 'Twój email') %>
             <%= render Forms::EmailFieldComponent.new(form: f, method: :email) %>
-            <% resource.errors[:email].each do |message| %>
-              <%= content_tag :p, message, class: 'mt-2 text-sm text-red-600' %>
-            <% end %>
+            <%= render Forms::ErrorsComponent.new(resource: resource, method: :email) %>
           </div>
 
 
