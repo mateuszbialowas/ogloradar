@@ -32,3 +32,10 @@ Metrics/MethodLength:
 Lint/MissingSuper:
   Exclude:
     - "app/components/**/*"
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
