@@ -40,7 +40,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'actioncable'
   gem 'hotwire-livereload'
+  gem 'listen'
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
