@@ -72,6 +72,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   Rack::MiniProfiler.config.position = 'bottom-right'
-  config.hotwire_livereload.listen_paths << Rails.root.join("app/components")
+  config.hotwire_livereload.listen_paths << Rails.root.join('app/components')
   config.hotwire_livereload.reload_method = :turbo_stream
 end

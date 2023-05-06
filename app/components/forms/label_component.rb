@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-class Forms::LabelComponent < BaseViewComponent
-
+module Forms
+  class LabelComponent < BaseViewComponent
     attr_reader :form, :method, :label
-  def initialize(form:, method:, label:)
-    @form = form
-    @method = method.to_sym
-    @label = label.to_s
-  end
 
+    def initialize(form:, method:, label:)
+      @form = form
+      @method = method.to_sym
+      @label = label.to_s
+    end
+  end
 end

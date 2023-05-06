@@ -42,12 +42,12 @@ end
 group :development do
   gem 'actioncable'
   gem 'hotwire-livereload'
+  gem 'i18n_generators'
+  gem 'i18n-tasks'
   gem 'listen'
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
-  gem 'i18n_generators'
-  gem 'i18n-tasks'
 end
 
 group :test do
