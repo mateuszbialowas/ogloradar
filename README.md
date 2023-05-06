@@ -41,4 +41,3 @@ rails generate component Button text --stimulus --preview
 ❗ Remember to run
 `rails stimulus:manifest:update`
 after generating a new component
-
