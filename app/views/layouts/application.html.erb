@@ -12,9 +12,7 @@
   </head>
 
   <body class="h-full">
-    <% flash.each do |data| %>
-      <%= render FlashComponent.new(data:) %>
-    <% end %>
+    <%= render FlashesComponent.new(flash: flash) %>
     <%= yield %>
   </body>
 </html>
