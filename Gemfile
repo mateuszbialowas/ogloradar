@@ -49,6 +49,7 @@ group :development do
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
+  gem "letter_opener"
 end
 
 group :test do
