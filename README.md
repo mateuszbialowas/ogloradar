@@ -23,6 +23,8 @@ rails g i18n pl
 ```
 
 ## Find and manage missing translations
+https://www.honeybadger.io/blog/rails-i18n/
+
 https://github.com/glebm/i18n-tasks
 ```
 bundle exec i18n-tasks
