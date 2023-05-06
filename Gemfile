@@ -9,6 +9,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'inline_svg'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
@@ -41,13 +42,14 @@ end
 
 group :development do
   gem 'actioncable'
+  gem 'hotwire-livereload'
+  gem 'i18n_generators'
+  gem 'i18n-tasks'
+  gem 'letter_opener'
   gem 'listen'
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
 
 group :test do

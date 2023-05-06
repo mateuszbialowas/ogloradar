@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .field_with_errors > label {
+        @apply text-red-700;
+    }
+
+    .field_with_errors > input {
+        @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500;
+    }
+}
