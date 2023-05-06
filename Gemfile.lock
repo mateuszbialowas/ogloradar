@@ -119,6 +119,9 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hotwire-livereload (1.2.3)
+      listen (>= 3.0.0)
+      rails (>= 6.0.0)
     htmlbeautifier (1.4.2)
     htmlentities (4.3.4)
     i18n (1.13.0)
@@ -320,6 +323,7 @@ DEPENDENCIES
   debug
   devise
   erb_lint
+  hotwire-livereload
   jbuilder
   jsbundling-rails
   listen
