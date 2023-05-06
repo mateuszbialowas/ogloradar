@@ -2,6 +2,6 @@
 
 class FlashComponentPreview < ViewComponent::Preview
   def default
-    render(FlashComponent.new(type: "type", message: "message"))
+    render(FlashComponent.new(type: 'type', message: 'message'))
   end
 end
