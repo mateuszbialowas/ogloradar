@@ -22,6 +22,13 @@ https://github.com/amatsuda/i18n_generators
 rails g i18n pl
 ```
 
+## Find and manage missing translations
+https://github.com/glebm/i18n-tasks
+```
+bundle exec i18n-tasks
+i18n-tasks health
+```
+
 ## Generate Components
 ```
 rails generate component <ComponentName> <args> <options>

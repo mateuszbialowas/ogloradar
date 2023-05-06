@@ -47,6 +47,7 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'web-console'
   gem 'i18n_generators'
+  gem 'i18n-tasks'
 end
 
 group :test do
