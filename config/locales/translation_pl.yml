@@ -9,6 +9,7 @@ pl:
         confirmation_token: Token potwierdzenia  #g
         confirmed_at: Potwierdzono o godz  #g
         email: E-mail  #g
+        password: Hasło
         encrypted_password: Zaszyfrowane hasło  #g
         remember_created_at: Pamiętaj utworzone o godz  #g
         reset_password_sent_at: Zresetuj hasło wysłane na  #g
