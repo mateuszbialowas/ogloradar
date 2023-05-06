@@ -126,6 +126,9 @@ GEM
     htmlentities (4.3.4)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
+    i18n_generators (2.2.2)
+      activerecord (>= 3.0.0)
+      railties (>= 3.0.0)
     io-console (0.6.0)
     irb (1.6.4)
       reline (>= 0.3.0)
@@ -324,6 +327,7 @@ DEPENDENCIES
   devise
   erb_lint
   hotwire-livereload
+  i18n_generators
   jbuilder
   jsbundling-rails
   listen

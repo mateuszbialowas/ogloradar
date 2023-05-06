@@ -46,9 +46,7 @@ group :development do
   gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem 'i18n_generators'
 end
 
 group :test do

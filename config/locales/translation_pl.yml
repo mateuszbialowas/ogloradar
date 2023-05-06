@@ -1,0 +1,16 @@
+pl:
+  activerecord:
+    models:
+      user: Użytkownik  #g
+
+    attributes:
+      user:
+        confirmation_sent_at: Potwierdzenie wysłane o godz  #g
+        confirmation_token: Token potwierdzenia  #g
+        confirmed_at: Potwierdzono o godz  #g
+        email: E-mail  #g
+        encrypted_password: Zaszyfrowane hasło  #g
+        remember_created_at: Pamiętaj utworzone o godz  #g
+        reset_password_sent_at: Zresetuj hasło wysłane na  #g
+        reset_password_token: Zresetuj token hasła  #g
+        unconfirmed_email: Niepotwierdzony e-mail  #g
