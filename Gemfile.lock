@@ -141,6 +141,9 @@ GEM
     i18n_generators (2.2.2)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.6.0)
     irb (1.6.4)
       reline (>= 0.3.0)
@@ -346,6 +349,7 @@ DEPENDENCIES
   hotwire-livereload
   i18n-tasks
   i18n_generators
+  inline_svg
   jbuilder
   jsbundling-rails
   listen
