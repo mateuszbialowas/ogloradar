@@ -3,7 +3,7 @@
     <%= inline_svg_tag(icon_name, class: 'flex-shrink-0 w-5 h-5') %>
     <%= content_tag :div, message, class: 'ml-3 text-sm font-medium' %>
     <%= content_tag :button, data: { action: 'flash-component#close' },
-                    class: "ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1.5
+                             class: "ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 p-1.5
                     inline-flex h-8 w-8 #{close_icon_class}" do %>
       <%= inline_svg_tag('close.svg', class: 'flex-shrink-0 w-5 h-5') %>
     <% end %>
