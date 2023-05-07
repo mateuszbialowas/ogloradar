@@ -72,6 +72,12 @@ Rails.application.configure do
 
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } TODO: setup mailer
   config.action_mailer.default_url_options = { host: 'ogloradar-stg.mateuszbialowas.com' }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: Rails.application.credentials.dig(:mailgun, Rails.env.to_sym, :api_key),
+    domain: Rails.application.credentials.dig(:domain, Rails.env.to_sym)
+    # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
