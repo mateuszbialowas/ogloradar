@@ -4,9 +4,8 @@ module Mailers
   class BaseComponentPreview < ViewComponent::Preview
     include ActionView::Helpers::UrlHelper
     include ActionView::Helpers::TagHelper
-    attr_accessor :output_buffer
 
-    def default
+    def base
       render(Mailers::BaseComponent.new)
     end
 
