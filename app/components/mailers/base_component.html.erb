@@ -1,0 +1,52 @@
+<div role="article" aria-roledescription="email" aria-label="Potwierdź swój email" lang="pl">
+  <div class="sm-px-4" style="background-color: #f9fafb; font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <table align="center" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+        <td style="width: 34.5rem; max-width: 100%">
+          <div class="sm-my-8" style="margin-top: 48px; margin-bottom: 48px; margin-left: auto; margin-right: auto; text-align: center; font-weight: 600;
+            font-size: 1.875rem; line-height: 2.25rem;" ;>
+            <a href="https://ogloradar-stg.mateuszbialowas.com">
+              <%= tag.img(src: asset_url('logo.png'), width: 70, style: 'vertical-align: middle; line-height: 1; border: 0; margin-right: 0.25rem') %>
+              <span style="line-height: 2.25rem">
+                Ogloradar-stg
+              </span>
+            </a>
+          </div>
+          <table style="width: 100%;" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+              <td class="sm-px-6" style="border-radius: 4px; background-color: #fff; padding: 48px; font-size: 16px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
+                <h1 class="sm-leading-8" style="margin: 0 0 24px; font-size: 24px; font-weight: 600; color: #000">
+                  <%= header %>
+                </h1>
+                <%= body %>
+                <% if footer %>
+                  <div role="separator" style="background-color: #cbd5e1; height: 1px; line-height: 1px; margin: 2rem 0">&zwj;</div>
+                  <div style="font-size: 14px">
+                    <%= footer %>
+                  </div>
+                <% end %>
+              </td>
+            </tr>
+            <tr role="separator">
+              <td style="line-height: 48px">&zwj;</td>
+            </tr>
+            <tr role="separator">
+              <td class="text-align: center">
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
+                <p style="margin: 0; font-style: italic">
+                  Znajdź idealne ogłoszenie dla siebie
+                </p>
+                <p style="cursor: default; margin-bottom: 48px">
+                  <%= link_to 'Ogloradar-stg', 'https://ogloradar-stg.mateuszbialowas.com/', class: 'hover-important-text-decoration-underline', style: 'color: #4338ca; text-decoration: none' %>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

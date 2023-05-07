@@ -1,5 +1,19 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<%= render Mailers::BaseComponent.new do |component| %>
+  <% component.with_header do %>
+    Cześć <%= @email %> 👋!
+  <% end %>
+  <%= component.with_body do %>
+    <p style="margin: 0; line-height: 24px">
+      Proszę potwierdź swojego maila, aby móc korzystać z Ogloradar-stg.
+    </p>
+    <div role="separator" style="line-height: 1.5rem">&zwj;</div>
+    <div>
+      <%= link_to confirmation_url(@resource, confirmation_token: @token), style: 'display: inline-block; border-radius: 4px; background-color: #2563EB; padding: 16px 24px; font-size: 16px; font-weight: 600; line-height: 1; color: #f8fafc; text-decoration: none; border-radius: 0.5rem;' do %>
+        <span style="mso-text-raise: 16px">Potwierdź swój email &rarr;</span>
+      <% end %>
+    </div>
+  <% end %>
+  <%= component.with_footer do %>
+    Znalazłeś ten email przypadkowo? Nie przejmuj się, po prostu go usuń.
+  <% end %>
+<% end %>

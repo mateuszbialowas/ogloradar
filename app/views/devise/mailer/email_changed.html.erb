@@ -1,7 +1,17 @@
-<p>Hello <%= @email %>!</p>
+<%= render Mailers::BaseComponent.new do |component| %>
+  <% component.with_header do %>
+    Cześć <%= @email %> 👋!
+  <% end %>
+  <%= component.with_body do %>
+    <p style="margin: 0; line-height: 24px">
+      <% if @resource.try(:unconfirmed_email?) %>
 
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+      <p>Kontaktujemy się z Tobą, aby poinformować, że Twój adres e-mail zostaje zmieniony
+        na <%= @resource.unconfirmed_email %>.</p>
+    <% else %>
+      <p>Kontaktujemy się z Tobą, aby poinformować, że Twój adres e-mail został zmieniony na <%= @resource.email %>.</p>
+    <% end %>    </p>
+    <div>
+    </div>
+  <% end %>
 <% end %>
