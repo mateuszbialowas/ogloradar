@@ -9,7 +9,7 @@ module Mailers
       render(Mailers::BaseComponent.new)
     end
 
-    def with_slots
+    def with_slots # rubocop:disable Metrics/MethodLength:
       render Mailers::BaseComponent.new do |component|
         component.with_header do
           'Header 👋'
