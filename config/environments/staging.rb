@@ -70,8 +70,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } TODO: setup mailer
-  config.action_mailer.default_url_options = { host: 'ogloradar-stg.mateuszbialowas.com' }
+  config.action_mailer.default_url_options = { host: 'ogloradar-stg.mateuszbialowas.com', protocol: 'https' }
+
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: Rails.application.credentials.dig(:mailgun, Rails.env.to_sym, :api_key),
