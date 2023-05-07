@@ -41,3 +41,8 @@ rails generate component Button text --stimulus --preview
 ❗ Remember to run
 `rails stimulus:manifest:update`
 after generating a new component
+
+## Email Preview
+```
+http://localhost:3000/rails/mailers
+```
