@@ -12,6 +12,7 @@ gem 'devise'
 gem 'inline_svg'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'mailgun-ruby'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
@@ -21,7 +22,6 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
