@@ -4,7 +4,7 @@ class DeviseMailerPreview < ActionMailer::Preview
   # We do not have confirmable enabled, but if we did, this is
   # how we could generate a preview:
   def confirmation_instructions
-    Devise::Mailer.confirmation_instructions(User.first, "faketoken")
+    Devise::Mailer.confirmation_instructions(User.first, 'faketoken')
   end
 
   def reset_password_instructions
