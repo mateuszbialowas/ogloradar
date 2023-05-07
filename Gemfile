@@ -33,6 +33,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'erb_lint'
+  gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
