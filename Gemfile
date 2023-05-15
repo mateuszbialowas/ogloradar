@@ -46,6 +46,7 @@ end
 group :staging do
   gem 'sentry-rails'
   gem 'sentry-ruby'
+  gem 'sentry-sidekiq'
 end
 
 group :development do
