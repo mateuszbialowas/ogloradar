@@ -32,9 +32,10 @@ module Api
       def parse_products(body)
         listing_grid = body.css('div[data-testid="listing-grid"]').first
         products = listing_grid.css('div[data-cy="l-card"]')
-        products.map do |product|
+        parsed_products = products.map do |product|
           parse_product(product)
         end
+        parsed_products.select { |product| product[:advertised] == false }
       end
 
       def next_page_uri(body)
