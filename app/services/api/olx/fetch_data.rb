@@ -75,7 +75,7 @@ module Api
       end
 
       def thumbnail_url(product)
-        product.css('img').first['src']
+        product.css('img').first['src'] || 'https://placehold.co/400'
       end
 
       def product_advertised?(product)
