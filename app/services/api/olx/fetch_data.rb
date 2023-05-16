@@ -6,7 +6,7 @@ module Api
       class OlxResponseError < StandardError; end
       include BaseService
 
-      def initialize(url: 'https://www.olx.pl/nieruchomosci/mieszkania/bialystok/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1500&search%5Bfilter_float_price:to%5D=4000')
+      def initialize(url:)
         @url = url
       end
 
