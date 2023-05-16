@@ -19,4 +19,13 @@ describe Api::Olx::FetchData do
       expect(service.success[:next_page]).to be_a(String)
     end
   end
+
+  context 'when http request fails and raises exception' do
+    it 'returns failure and sends message to Sentry', vcr: 'failed olx fetched data' do
+      allow(HTTParty).to receive(:get).and_raise(StandardError)
+      allow(Sentry).to receive(:capture_exception)
+      expect(service).to be_a(Failure)
+      expect(service.failure).to eq('Coś poszło nie tak. Skontaktuj się z administratorem')
+    end
+  end
 end

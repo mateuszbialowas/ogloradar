@@ -22,12 +22,7 @@ module Api
 
       def make_request
         response = HTTParty.get(@url)
-        if response.code == 200
-          Success(response)
-        else
-          Sentry.capture_message('Olx request failed', extra: { response: })
-          default_failure
-        end
+        response.code == 200 ? Success(response) : raise(StandardError(response))
       rescue StandardError => e
         Sentry.capture_exception(e)
         default_failure
