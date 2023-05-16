@@ -6,15 +6,15 @@ module Api
       class OlxRequestError < StandardError; end
       include BaseService
 
-      def initialize(url:)
-        @url = url
+      def initialize(uri:)
+        @uri = uri
       end
 
       def call
         response = yield make_request
         parsed_body = Nokogiri::HTML(response.body)
         parsed_products = parse_products(parsed_body)
-        next_page = next_page_url(parsed_body)
+        next_page = next_page_uri(parsed_body)
 
         Success(parsed_products:, next_page:)
       end
@@ -22,7 +22,7 @@ module Api
       private
 
       def make_request
-        response = HTTParty.get(@url)
+        response = HTTParty.get(@uri)
         response.code.eql?(200) ? Success(response) : raise(OlxRequestError, response)
       rescue StandardError => e
         Sentry.capture_exception(e)
@@ -37,7 +37,7 @@ module Api
         end
       end
 
-      def next_page_url(body)
+      def next_page_uri(body)
         pagination = body.css('ul[data-testid="pagination-list"]').first
         next_page = pagination.css('a[data-cy="pagination-forward"]').first
         "https://www.olx.pl#{next_page['href']}" if next_page
@@ -50,9 +50,10 @@ module Api
           title: product_title(product),
           price: product_price(product),
           thumbnail_url: thumbnail_url(product),
-          location: product_location(product),
-          date: product_date(product),
-          area: product_area(product)
+          external_service_name: 'olx'
+          # location: product_location(product),
+          # date: product_date(product),
+          # area: product_area(product)
         }
       end
 

@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe Api::Olx::FetchData do
-  subject(:service) { described_class.new(url:).call }
+  subject(:service) { described_class.new(uri:).call }
 
-  let(:url) { 'https://www.olx.pl/nieruchomosci/mieszkania/bialystok/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1500&search%5Bfilter_float_price:to%5D=4000' }
+  let(:uri) { 'https://www.olx.pl/nieruchomosci/mieszkania/bialystok/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1500&search%5Bfilter_float_price:to%5D=4000' }
 
   context 'with success' do
     it 'returns success', vcr: 'olx fetched data' do
@@ -16,7 +16,7 @@ describe Api::Olx::FetchData do
       expect(service.success).to be_a(Hash)
       expect(service.success[:parsed_products].first.keys).to contain_exactly(:external_id, :product_url,
                                                                               :title, :price, :thumbnail_url,
-                                                                              :location, :date, :area)
+                                                                              :external_service_name)
       expect(service.success[:next_page]).to be_a(String)
     end
   end
