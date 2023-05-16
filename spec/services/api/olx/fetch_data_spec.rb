@@ -14,8 +14,9 @@ describe Api::Olx::FetchData do
 
     it 'returns parsed offers and next_page', vcr: 'olx fetched data' do
       expect(service.success).to be_a(Hash)
-      expect(service.success[:parsed_offers].first.keys).to contain_exactly(:id, :href, :title, :price, :thumbnail,
-                                                                            :location, :date, :area)
+      expect(service.success[:parsed_products].first.keys).to contain_exactly(:external_id, :product_url,
+                                                                              :title, :price, :thumbnail_url,
+                                                                              :location, :date, :area)
       expect(service.success[:next_page]).to be_a(String)
     end
   end

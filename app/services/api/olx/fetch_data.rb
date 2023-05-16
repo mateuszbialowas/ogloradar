@@ -13,10 +13,10 @@ module Api
       def call
         response = yield make_request
         parsed_body = Nokogiri::HTML(response.body)
-        parsed_offers = parse_offers(parsed_body)
+        parsed_products = parse_products(parsed_body)
         next_page = next_page_url(parsed_body)
 
-        Success(parsed_offers:, next_page:)
+        Success(parsed_products:, next_page:)
       end
 
       private
@@ -29,11 +29,11 @@ module Api
         default_failure
       end
 
-      def parse_offers(body)
+      def parse_products(body)
         listing_grid = body.css('div[data-testid="listing-grid"]').first
-        offers = listing_grid.css('div[data-cy="l-card"]')
-        offers.map do |offer|
-          parse_offer(offer)
+        products = listing_grid.css('div[data-cy="l-card"]')
+        products.map do |product|
+          parse_product(product)
         end
       end
 
@@ -43,49 +43,49 @@ module Api
         "https://www.olx.pl#{next_page['href']}" if next_page
       end
 
-      def parse_offer(offer)
+      def parse_product(product)
         {
-          id: offer_id(offer),
-          href: offer_href(offer),
-          title: offer_title(offer),
-          price: offer_price(offer),
-          thumbnail: offer_thumbnail(offer),
-          location: offer_location(offer),
-          date: offer_date(offer),
-          area: offer_area(offer)
+          external_id: external_id(product),
+          product_url: product_url(product),
+          title: product_title(product),
+          price: product_price(product),
+          thumbnail_url: thumbnail_url(product),
+          location: product_location(product),
+          date: product_date(product),
+          area: product_area(product)
         }
       end
 
-      def offer_id(offer)
-        offer.attributes['id'].value
+      def external_id(product)
+        product.attributes['id'].value
       end
 
-      def offer_href(offer)
-        offer.css('a').first['href']
+      def product_url(product)
+        "https://www.olx.pl#{product.css('a').first['href']}"
       end
 
-      def offer_title(offer)
-        offer.css('h6').first.text
+      def product_title(product)
+        product.css('h6').first.text
       end
 
-      def offer_price(offer)
-        offer.css('p[data-testid="ad-price"]').first.text
+      def product_price(product)
+        product.css('p[data-testid="ad-price"]').first.text
       end
 
-      def offer_thumbnail(offer)
-        offer.css('img').first['src']
+      def thumbnail_url(product)
+        "https://www.olx.pl#{product.css('img').first['src']}"
       end
 
-      def offer_location(offer)
-        offer.css('p[data-testid="location-date"]').first.text.split('-').first.strip
+      def product_location(product)
+        product.css('p[data-testid="location-date"]').first.text.split('-').first.strip
       end
 
-      def offer_date(offer)
-        offer.css('p[data-testid="location-date"]').first.text.split('-').last.strip
+      def product_date(product)
+        product.css('p[data-testid="location-date"]').first.text.split('-').last.strip
       end
 
-      def offer_area(offer)
-        offer.css('span.css-643j0o').first.text
+      def product_area(product)
+        product.css('span.css-643j0o').first.text
       end
     end
   end
