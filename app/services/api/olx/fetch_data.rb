@@ -3,6 +3,7 @@
 module Api
   module Olx
     class FetchData
+      class OlxResponseError < StandardError; end
       include BaseService
 
       def initialize(url: 'https://www.olx.pl/nieruchomosci/mieszkania/bialystok/?search%5Border%5D=created_at:desc&search%5Bfilter_float_price:from%5D=1500&search%5Bfilter_float_price:to%5D=4000')
@@ -22,7 +23,7 @@ module Api
 
       def make_request
         response = HTTParty.get(@url)
-        response.code == 200 ? Success(response) : raise(StandardError(response))
+        response.code.eql?(200) ? Success(response) : raise(OlxResponseError, response)
       rescue StandardError => e
         Sentry.capture_exception(e)
         default_failure
