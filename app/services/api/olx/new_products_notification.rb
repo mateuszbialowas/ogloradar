@@ -5,8 +5,9 @@ module Api
     class NewProductsNotification
       include BaseService
 
-      def initialize(uri:)
+      def initialize(uri:, current_user:)
         @uri = uri
+        @current_user = current_user
       end
 
       def call
@@ -17,13 +18,13 @@ module Api
         return Success() if new_products.empty?
 
         send_mail(new_products)
+        Success()
       end
 
       private
 
       def send_mail(new_products)
-        user = User.find_by(email: 'mateusz.bialowas2@gmail.com')
-        ProductsMailer.created(user, new_products).deliver_now
+        ProductsMailer.created(@current_user, new_products).deliver_now
       end
     end
   end
