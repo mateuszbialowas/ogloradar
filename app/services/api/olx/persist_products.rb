@@ -14,7 +14,7 @@ module Api
         yield persist_products(fetch_data_result[:parsed_products])
         next_page = fetch_data_result[:next_page]
 
-        next_page ? PersistProducts.new(uri: next_page).call : Success()
+        make_next_request?(fetch_data_result) ? PersistProducts.new(uri: next_page).call : Success()
       end
 
       private
@@ -27,9 +27,16 @@ module Api
         products.each do |product|
           next if Product.exists?(external_id: product[:external_id])
 
-          Product.create(product)
+          Product.create(product.except!(:advertised, :date, :location, :area))
         end
         Success()
+      end
+
+      def make_next_request?(fetch_data_result)
+        return false unless fetch_data_result[:next_page]
+
+        not_advertised_products = fetch_data_result[:parsed_products].select { |product| product[:advertised] == false }
+        !Product.exists?(external_id: not_advertised_products.last[:external_id])
       end
     end
   end
