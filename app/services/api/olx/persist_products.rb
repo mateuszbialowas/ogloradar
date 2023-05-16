@@ -10,12 +10,10 @@ module Api
       end
 
       def call
-        fetch_data_result = yield fetch_data
-        make_next_request_result = make_next_request?(fetch_data_result)
-        persist_products(fetch_data_result[:parsed_products])
-        next_page = fetch_data_result[:next_page]
+        parsed_products, next_page = (yield fetch_data).values_at(:parsed_products, :next_page)
+        persist_products(parsed_products)
 
-        make_next_request_result ? PersistProducts.new(uri: next_page).call : Success()
+        next_page ? PersistProducts.new(uri: next_page).call : Success()
       end
 
       private
