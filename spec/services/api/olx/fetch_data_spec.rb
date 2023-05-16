@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Dry::Monads[:result]
 
 describe Api::Olx::FetchData do
   subject(:service) { described_class.new(url:).call }
