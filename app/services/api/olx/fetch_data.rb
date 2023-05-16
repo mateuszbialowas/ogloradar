@@ -3,7 +3,7 @@
 module Api
   module Olx
     class FetchData
-      class OlxResponseError < StandardError; end
+      class OlxRequestError < StandardError; end
       include BaseService
 
       def initialize(url:)
@@ -23,7 +23,7 @@ module Api
 
       def make_request
         response = HTTParty.get(@url)
-        response.code.eql?(200) ? Success(response) : raise(OlxResponseError, response)
+        response.code.eql?(200) ? Success(response) : raise(OlxRequestError, response)
       rescue StandardError => e
         Sentry.capture_exception(e)
         default_failure
