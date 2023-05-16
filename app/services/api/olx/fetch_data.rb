@@ -75,7 +75,7 @@ module Api
       end
 
       def thumbnail_url(product)
-        "https://www.olx.pl#{product.css('img').first['src']}"
+        product.css('img').first['src']
       end
 
       def product_advertised?(product)

@@ -22,7 +22,7 @@ module Api
       private
 
       def send_mail(new_products)
-        user = User.find_by(email: 'mateusz.bialowas2@gmail.com')
+        user = User.find_by(email: 'user@example.com')
         ProductsMailer.created(user, new_products).deliver_now
       end
     end
