@@ -1,8 +1,16 @@
-# frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+user = User.find_or_create_by(email: "user@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+end
+
+
+20.times do
+  Product.create(
+    external_id: FFaker::Guid.guid,
+    product_url: FFaker::Internet.http_url,
+    title: FFaker::Product.product_name,
+    price: Random.rand(1000),
+    thumbnail_url: FFaker::Image.url,
+    external_service_name: "olx"
+  )
+end

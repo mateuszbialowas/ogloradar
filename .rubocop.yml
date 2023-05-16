@@ -20,6 +20,9 @@ Style/Documentation:
 RSpec/MultipleExpectations:
   Enabled: false
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - "config/environments/development.rb"
