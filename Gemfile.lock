@@ -114,6 +114,13 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dry-core (1.0.0)
+      concurrent-ruby (~> 1.0)
+      zeitwerk (~> 2.6)
+    dry-monads (1.6.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -423,6 +430,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  dry-monads
   erb_lint
   factory_bot_rails
   ffaker
@@ -437,6 +445,7 @@ DEPENDENCIES
   listen
   lookbook (>= 2.0.0)
   mailgun-ruby
+  nokogiri
   pg (~> 1.1)
   pry
   puma (~> 5.0)
