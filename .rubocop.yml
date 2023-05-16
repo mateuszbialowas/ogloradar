@@ -17,6 +17,9 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - "config/environments/development.rb"
