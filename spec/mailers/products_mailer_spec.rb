@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe ProductsMailer do
   describe 'created' do
-    subject(:mail) { described_class.created(user, products) }
+    subject(:mail) { described_class.created(user, Product.all) }
 
     let(:user) { create(:user) }
-    let(:products) { create_list(:product, 3) }
+    let!(:products) { create_list(:product, 3) }
 
     it 'renders the headers' do
       expect(mail.subject).to eq('Nowe ogłoszenia')
