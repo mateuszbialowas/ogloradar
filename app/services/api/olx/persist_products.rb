@@ -23,12 +23,6 @@ module Api
         Api::Olx::FetchData.new(uri: @uri).call
       end
 
-      def make_next_request?(fetch_data_result)
-        return false unless fetch_data_result[:next_page]
-
-        !Product.exists?(external_id: fetch_data_result[:parsed_products].last[:external_id])
-      end
-
       def persist_products(products)
         products.each do |product|
           next if Product.exists?(external_id: product[:external_id])
