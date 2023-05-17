@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_212810) do
     t.string "product_url", null: false
     t.string "title", null: false
     t.string "price", null: false
-    t.string "thumbnail_url", null: false
+    t.string "thumbnail_url"
     t.string "external_service_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

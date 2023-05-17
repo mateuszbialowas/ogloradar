@@ -10,7 +10,7 @@
     <%= content_tag :li, product.price %>
     <%= content_tag :li, product.external_service_name %>
     <%= content_tag :li do %>
-      <img src=<%= product.thumbnail_url %> alt="">
+      <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 150px' %>
     <% end %>
   </ul>
 <% end %>

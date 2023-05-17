@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :product_url, null: false
       t.string :title, null: false
       t.string :price, null: false
-      t.string :thumbnail_url, null: false
+      t.string :thumbnail_url
       t.string :external_service_name, null: false
 
       t.timestamps
