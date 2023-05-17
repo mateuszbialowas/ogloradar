@@ -12,7 +12,5 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    add_index :products, %i[external_id external_service_name], unique: true
   end
 end
