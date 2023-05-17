@@ -5,15 +5,16 @@ module Api
     class PersistProducts
       include BaseService
 
-      def initialize(uri:)
-        @uri = uri
+      def initialize(search:, uri: nil)
+        @search = search
+        @uri = uri || search.uri
       end
 
       def call
         parsed_products, next_page = (yield fetch_data).values_at(:parsed_products, :next_page)
         persist_products(parsed_products)
 
-        next_page ? PersistProducts.new(uri: next_page).call : Success()
+        next_page ? PersistProducts.new(search: @search, uri: next_page).call : Success()
       end
 
       private
@@ -32,7 +33,7 @@ module Api
         products.each do |product|
           next if Product.exists?(external_id: product[:external_id])
 
-          Product.create(product.except(:advertised, :date, :location, :area))
+          Product.create(product.except(:advertised, :date, :location, :area).merge(search: @search))
         end
       end
     end

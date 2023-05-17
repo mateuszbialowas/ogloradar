@@ -7,7 +7,8 @@ RSpec.describe ProductsMailer do
     subject(:mail) { described_class.created(user, Product.all) }
 
     let(:user) { create(:user) }
-    let!(:products) { create_list(:product, 3) }
+    let(:search) { create(:search, user:) }
+    let!(:products) { create_list(:product, 3, search:) }
 
     it 'renders the headers' do
       expect(mail.subject).to eq('Nowe ogłoszenia')

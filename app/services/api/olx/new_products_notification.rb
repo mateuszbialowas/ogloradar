@@ -5,15 +5,16 @@ module Api
     class NewProductsNotification
       include BaseService
 
-      def initialize(uri:, current_user:)
-        @uri = uri
+      def initialize(search:, current_user:)
+        @search = search
         @current_user = current_user
       end
 
       def call
         timestamp = Time.zone.now
-        Api::Olx::PersistProducts.new(uri: @uri).call
-        new_products = Product.where('created_at > ?', timestamp)
+        yield Api::Olx::PersistProducts.new(search: @search).call
+
+        new_products = @search.products.where('created_at > ?', timestamp)
 
         return Success() if new_products.empty?
 

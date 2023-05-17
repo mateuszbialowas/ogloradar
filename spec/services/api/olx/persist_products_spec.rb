@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 describe Api::Olx::PersistProducts do
-  subject(:service) { described_class.new(uri:).call }
+  subject(:service) { described_class.new(search:, uri:).call }
 
+  let(:search) { create(:search) }
   let(:uri) { 'https://www.olx.pl/nieruchomosci/mieszkania/wynajem/bialystok/?search%5Bfilter_float_price:from%5D=2000&search%5Bfilter_float_price:to%5D=4000&search%5Bfilter_enum_furniture%5D%5B0%5D=yes&search%5Bfilter_enum_rooms%5D%5B0%5D=two&search%5Bfilter_enum_rooms%5D%5B1%5D=three' }
 
   context 'with success' do
