@@ -9,14 +9,20 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'dry-monads'
+gem 'httparty'
 gem 'inline_svg'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'mailgun-ruby'
+gem 'nokogiri'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
+gem 'pundit'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 gem 'redis', '~> 4.0'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -27,6 +33,12 @@ gem 'view_component'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+group :staging, :production do
+  gem 'sentry-rails'
+  gem 'sentry-ruby'
+  gem 'sentry-sidekiq'
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -41,12 +53,6 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-end
-
-group :staging do
-  gem 'sentry-rails'
-  gem 'sentry-ruby'
-  gem 'sentry-sidekiq'
 end
 
 group :development do
