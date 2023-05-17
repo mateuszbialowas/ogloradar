@@ -1,5 +1,0 @@
-:scheduler:
-  :schedule:
-    hello_world_job:
-      cron: '0 * * * * *'   # Runs once per minute
-      class: HelloWorldJob
