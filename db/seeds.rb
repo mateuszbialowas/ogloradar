@@ -4,6 +4,7 @@ user = User.find_or_create_by(email: 'user@example.com') do |u|
   u.password = 'password'
   u.password_confirmation = 'password'
   u.admin = true
+  u.confirmed_at = Time.zone.now
 end
 
 search = Search.find_or_create_by(name: 'Olx Mieszkania',
