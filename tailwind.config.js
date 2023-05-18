@@ -5,6 +5,7 @@ module.exports = {
         './app/assets/stylesheets/**/*.css',
         './app/javascript/**/*.js',
         './app/components/**/*',
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -56,5 +57,6 @@ module.exports = {
 
     plugins: [
         require('@tailwindcss/forms'),
+        require('flowbite/plugin')
     ],
 }
