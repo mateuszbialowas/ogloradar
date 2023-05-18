@@ -7,8 +7,5 @@ import { application } from "./application"
 import FlashComponentController from "./../../components/flash_component_controller"
 application.register("flash-component", FlashComponentController)
 
-import NavbarComponentController from "./../../components/navbar_component_controller"
-application.register("navbar-component", NavbarComponentController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
