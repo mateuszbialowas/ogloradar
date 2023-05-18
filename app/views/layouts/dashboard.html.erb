@@ -12,8 +12,8 @@
 </head>
 
 <body class="h-full">
+<%= render FlashesComponent.new(flash:, position: 'bottom-right') %>
 <%= render NavbarComponent.new(current_user:) do %>
-  <%= render FlashesComponent.new(flash:, position: 'bottom-right') %>
   <%= yield %>
 <% end %>
 </body>
