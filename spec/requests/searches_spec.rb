@@ -75,7 +75,7 @@ RSpec.describe '/searches' do
         end.not_to change(Search, :count)
       end
 
-      it "renders a new template" do
+      it 'renders a new template' do
         post searches_url, params: { search: invalid_attributes }
         expect(response).to render_template('searches/new')
         expect(response.body).to include('Nie udało się utworzyć wyszukiwania. Popraw dane w formularzu.')

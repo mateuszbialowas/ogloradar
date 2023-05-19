@@ -9,6 +9,8 @@ describe Searches::Destroy do
   let(:search) { create(:search, user: current_user) }
   let(:search_id) { search.id }
 
+  before { search }
+
   context 'with success' do
     it 'returns success' do
       expect(service).to be_a(Success)
