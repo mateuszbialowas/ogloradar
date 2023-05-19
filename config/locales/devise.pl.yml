@@ -2,7 +2,7 @@ pl:
   test: 'Przykładowy tekst'
   devise:
     confirmations:
-      confirmed: "Twoje konto zostało aktywowane. Zostałeś pomyślnie zalogowany."
+      confirmed: "Twoje konto zostało aktywowane. Zaloguj się."
       send_instructions: "Za chwilę otrzymasz email z instrukcją jak aktywować konto."
       send_paranoid_instructions: "Jeśli Twój adres email istnieje w naszej bazie, za chwilę powinieneś otrzymać instrukcję jak aktywować konto."
     failure:
@@ -33,7 +33,7 @@ pl:
       updated_not_active: "Twoje hasło zostało zmienione."
     registrations:
       destroyed: "Do widzenia! Twoje konto zostało usunięte."
-      signed_up: "Witaj! Zarejestrowałeś się pomyślnie."
+      signed_up: "Witaj! Zarejestrowałeś się pomyślnie. Aktywuj konto klikając w link w emailu wysłanym na Twój adres w przeciągu 24 godzin."
       signed_up_but_inactive: "Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto nie zostało jeszcze aktywowane."
       signed_up_but_locked: "Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto zostało zablokowane."
       signed_up_but_unconfirmed: "Wiadomość email z instrukcją aktywacji konta została przesłana na Twój adres email. Użj linku z emaila aby aktywować konto."
