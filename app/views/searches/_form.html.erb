@@ -1,0 +1,24 @@
+<section>
+  <div class="py-8 px-4 max-w-2xl lg:py-16">
+    <%= form_with model: search, html: { data: { turbo: false } } do |f| %>
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="sm:col-span-2">
+          <%= render Forms::LabelComponent.new(form: f, method: :name) %>
+          <%= render Forms::TextFieldComponent.new(form: f, method: :name, placeholder: 'np: Mieszkania OLX Białystok') %>
+          <%= render Forms::ErrorsComponent.new(resource: search, method: :name) %>
+        </div>
+        <div class="sm:col-span-2">
+          <%= render Forms::LabelComponent.new(form: f, method: :uri) %>
+          <%= render Forms::TextFieldComponent.new(form: f, method: :uri, placeholder: 'np: https://www.olx.pl/nieruchomosci/mieszkania/bialystok/') %>
+          <%= render Forms::ErrorsComponent.new(resource: search, method: :uri) %>
+        </div>
+        <div class="w-full">
+          <%= render Forms::LabelComponent.new(form: f, method: :status) %>
+          <%= f.select :status, options_for_select(Search.statuses.keys, selected: search.status), {}, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5' %>
+          <%= render Forms::ErrorsComponent.new(resource: search, method: :status) %>
+        </div>
+      </div>
+      <%= f.submit class: 'inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800' %>
+    <% end %>
+  </div>
+</section>
