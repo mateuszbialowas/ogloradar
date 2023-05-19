@@ -7,15 +7,15 @@
 <section class="">
   <div class="py-8 px-4 max-w-2xl lg:py-16">
     <dl>
-      <dt class="mb-2 font-semibold leading-none text-gray-900">Name</dt>
+      <%= content_tag :dt, Search.human_attribute_name(:name), class: 'mb-2 font-semibold leading-none text-gray-900' %>
       <%= content_tag :dd, search.name, class: 'mb-4 font-light text-gray-500 sm:mb-5' %>
     </dl>
     <dl>
-      <dt class="mb-2 font-semibold leading-none text-gray-900">URI</dt>
+      <%= content_tag :dt, Search.human_attribute_name(:uri), class: 'mb-2 font-semibold leading-none text-gray-900' %>
       <%= content_tag :dd, search.uri, class: 'mb-4 font-light text-gray-500 sm:mb-5' %>
     </dl>
     <dl>
-      <dt class="mb-2 font-semibold leading-none text-gray-900">Status</dt>
+      <%= content_tag :dt, Search.human_attribute_name(:status), class: 'mb-2 font-semibold leading-none text-gray-900' %>
       <%= content_tag :dd, search.status, class: 'mb-4 font-light text-gray-500 sm:mb-5' %>
     </dl>
     <div class="flex items-center space-x-4">
