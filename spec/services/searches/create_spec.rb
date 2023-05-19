@@ -33,20 +33,6 @@ describe Searches::Create do
   end
 
   context 'with failure' do
-    context 'when user is not authorized' do
-      before { allow(Pundit).to receive(:authorize).and_raise(Pundit::NotAuthorizedError) }
-
-      it 'returns failure and error message' do
-        expect(service).to be_a(Failure)
-        expect(service.failure[:message]).to eq('Nie masz uprawnień do utworzenia wyszukiwania.')
-        expect(Pundit).to have_received(:authorize).with(current_user, Search, :create?)
-      end
-
-      it 'does not create Search model' do
-        expect { service }.not_to change(Search, :count)
-      end
-    end
-
     context 'when search is invalid' do
       let(:name) { '' }
 

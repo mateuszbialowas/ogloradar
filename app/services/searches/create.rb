@@ -4,6 +4,8 @@ module Searches
   class Create
     include BaseService
 
+    attr_reader :current_user
+
     def initialize(current_user:, params:)
       @current_user = current_user
       @params = params
@@ -11,7 +13,6 @@ module Searches
 
     def call
       search = build_search
-      yield authorize(search)
       yield validate_search(search)
       yield save_search(search)
 
@@ -22,14 +23,6 @@ module Searches
 
     def build_search
       @current_user.searches.build(@params)
-    end
-
-    def authorize(search)
-      Pundit.authorize(@current_user, search, :create?)
-      Success()
-    rescue Pundit::NotAuthorizedError
-      Failure(message: 'Nie masz uprawnień do utworzenia wyszukiwania.',
-              search:)
     end
 
     def validate_search(search)
