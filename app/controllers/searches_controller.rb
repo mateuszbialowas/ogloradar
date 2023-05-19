@@ -8,7 +8,6 @@ class SearchesController < AuthenticatedController
 
   def show
     search = policy_scope(Search).find(params[:id])
-    authorize search
 
     render 'searches/show', locals: { search: }
   end
