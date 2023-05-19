@@ -2,6 +2,8 @@ pl:
   activerecord:
     models:
       user: Użytkownik  #g
+      product: Produkt  #g
+      search: Wyszukiwanie
 
     attributes:
       user:
@@ -15,3 +17,20 @@ pl:
         reset_password_sent_at: Zresetuj hasło wysłane na  #g
         reset_password_token: Zresetuj token hasła  #g
         unconfirmed_email: Niepotwierdzony e-mail  #g
+        admin: Admin  #g
+        searches: Wyszukiwania  #g
+
+      product:
+        external_service_name: Nazwa usługi zewnętrznej  #g
+        price: Cena  #g
+        product_url: Adres URL produktu  #g
+        search: :activerecord.models.search  #g
+        thumbnail_url: URL miniatury  #g
+        title: Tytuł  #g
+
+      search:
+        name: Nazwa  #g
+        products: Produkty  #g
+        status: Status  #g
+        uri: Uri  #g
+        user: :activerecord.models.user  #g
