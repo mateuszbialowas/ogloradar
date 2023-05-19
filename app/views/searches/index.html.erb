@@ -39,7 +39,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @searches.each do |search| %>
+          <% searches.each do |search| %>
             <%= content_tag :tr, class: 'border-b' do %>
               <%= content_tag :th, search.name, class: 'px-4 py-3 font-medium text-gray-900 whitespace-nowrap' %>
               <%= content_tag :td, search.status, class: 'px-4 py-3' %>
@@ -69,7 +69,7 @@
           </tbody>
         </table>
       </div>
-      <%== render partial: 'pagy/nav', locals: { pagy: @pagy } if @pagy.pages > 1 %>
+      <%== render partial: 'pagy/nav', locals: { pagy: pagy } if pagy.pages > 1 %>
     </div>
   </div>
 </section>
