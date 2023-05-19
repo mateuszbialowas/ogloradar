@@ -5,4 +5,6 @@ class Search < ApplicationRecord
   has_many :products, dependent: :destroy
 
   enum status: { active: 'active', inactive: 'inactive' }
+
+  validates :name, :uri, :status, presence: true
 end

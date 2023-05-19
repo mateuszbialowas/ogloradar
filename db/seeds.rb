@@ -22,3 +22,12 @@ search = Search.find_or_create_by(name: 'Olx Mieszkania',
     search:
   )
 end
+
+30.times do
+  Search.create(
+    name: FFaker::Product.product_name,
+    uri: FFaker::Internet.http_url,
+    status: [:active, :inactive].sample,
+    user: user
+  )
+end
