@@ -19,7 +19,6 @@ class SearchesController < AuthenticatedController
 
   def edit
     search = policy_scope(Search).find(params[:id])
-    authorize search
 
     render 'searches/edit', locals: { search: }
   end
