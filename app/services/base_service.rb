@@ -7,6 +7,7 @@ module BaseService
   def self.included(base)
     base.include Dry::Monads[:result]
     base.include Dry::Monads::Do.for(:call)
+    base.include Pundit::Authorization
   end
 
   def default_failure
