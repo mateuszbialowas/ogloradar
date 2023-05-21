@@ -1,0 +1,4 @@
+<%= turbo_stream.replace(search, partial: 'searches/form', locals: { search: }) %>
+<%= turbo_stream.update('flashes_component') do %>
+  <%= render FlashesComponent.new(flash: flash, position: 'bottom-right') %>
+<% end %>

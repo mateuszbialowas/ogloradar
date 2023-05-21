@@ -1,4 +1,4 @@
-<div class="fixed p-1 <%= position %> flex flex-col gap-3 w-80 z-20">
+<div id="flashes_component" class="fixed p-1 <%= position %> flex flex-col gap-3 w-80 z-20">
   <% flash.each do |data| %>
     <%= render FlashComponent.new(data:) %>
   <% end %>
