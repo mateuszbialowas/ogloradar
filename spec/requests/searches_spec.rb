@@ -71,13 +71,13 @@ RSpec.describe '/searches' do
     context 'with invalid parameters' do
       it 'does not create a new Search' do
         expect do
-          post searches_url, params: { search: invalid_attributes }
+          post searches_url, params: { search: invalid_attributes }, as: :turbo_stream
         end.not_to change(Search, :count)
       end
 
       it 'renders a new template' do
-        post searches_url, params: { search: invalid_attributes }
-        expect(response).to render_template('searches/new')
+        post searches_url, params: { search: invalid_attributes }, as: :turbo_stream
+        expect(response).to render_template('searches/update')
         expect(response.body).to include('Nie udało się utworzyć wyszukiwania. Popraw dane w formularzu.')
       end
     end
@@ -109,8 +109,8 @@ RSpec.describe '/searches' do
     context 'with invalid parameters' do
       it 'renders edit template' do
         search = Search.create! valid_attributes
-        patch search_url(search), params: { search: invalid_attributes }
-        expect(response).to render_template('searches/edit')
+        patch search_url(search), params: { search: invalid_attributes }, as: :turbo_stream
+        expect(response).to render_template('searches/update')
         expect(response.body).to include('Nie udało się zaktualizować wyszukiwania. Popraw dane w formularzu.')
       end
     end
