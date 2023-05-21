@@ -29,7 +29,7 @@ class SearchesController < AuthenticatedController
       redirect_to search_url(result.success[:search]), notice: 'Wyszukiwanie zostało utworzone.'
     else
       flash.now[:error] = result.failure[:message]
-      render 'searches/new', locals: { search: result.failure[:search] }
+      render 'searches/update', locals: { search: result.failure[:search] }
     end
   end
 
@@ -40,7 +40,7 @@ class SearchesController < AuthenticatedController
       redirect_to search_url(result.success[:search]), notice: 'Wyszukiwanie zostało zaktualizowane.'
     else
       flash.now[:error] = result.failure[:message]
-      render 'searches/edit', locals: { search: result.failure[:search] }
+      render 'searches/update', locals: { search: result.failure[:search] }
     end
   end
 
