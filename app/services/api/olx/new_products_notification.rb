@@ -5,9 +5,8 @@ module Api
     class NewProductsNotification
       include BaseService
 
-      def initialize(search:, current_user:)
+      def initialize(search:)
         @search = search
-        @current_user = current_user
       end
 
       def call
@@ -25,7 +24,7 @@ module Api
       private
 
       def send_mail(new_products)
-        ProductsMailer.created(@current_user, new_products).deliver_now
+        ProductsMailer.created(@search.user, new_products).deliver_now
       end
     end
   end

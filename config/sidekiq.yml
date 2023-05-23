@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    olx_api_scheduler_job:
+      cron: '0 0 6 * * *'   # Runs once day at 6:00 AM
+      class: OlxApiSchedulerJob
