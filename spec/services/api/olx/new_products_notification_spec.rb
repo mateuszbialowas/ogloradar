@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Api::Olx::NewProductsNotification do
-  subject(:service) { described_class.new(search:, current_user: user).call }
+  subject(:service) { described_class.new(search:).call }
 
   let(:user) { create(:user) }
   let(:search) { create(:search, user:) }
