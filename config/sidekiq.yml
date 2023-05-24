@@ -3,3 +3,6 @@
     olx_api_scheduler_job:
       cron: '0 0 6 * * *'   # Runs once day at 6:00 AM
       class: OlxApiSchedulerJob
+    historical_space_stats:
+      cron: '0 0 0 * * *'   # Runs once day at 12:00 AM
+      class: HistoricalSpaceStatsJob
