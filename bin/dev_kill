@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+# Get process ids of the tasks and kill them
+kill_process() {
+  for process in "$@"
+  do
+    pid=$(ps aux | grep $process | grep -v grep | awk '{print $2}')
+    if [ "$pid" != "" ]; then
+      echo "Killing $process with PID: $pid"
+      kill -9 $pid
+    else
+      echo "No such process $process"
+    fi
+  done
+}
+
+# List of processes to be killed
+processes=("bin/rails server" "yarn build --watch" "yarn build:css --watch" "redis-server" "bundle exec sidekiq")
+
+kill_process "${processes[@]}"
+
+echo "All processes from Procfile.dev have been attempted to be killed"
