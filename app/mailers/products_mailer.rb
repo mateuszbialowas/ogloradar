@@ -3,7 +3,7 @@
 class ProductsMailer < ApplicationMailer
   def created(user, products)
     @user = user
-    @products = products.limit(10)
+    @products = products
 
     mail to: user.email, subject: 'Nowe ogłoszenia'
   end

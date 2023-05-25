@@ -1,16 +1,20 @@
-<h1>Nowe ogłoszenia</h1>
-
-<% @products.each do |product| %>
-  <ul>
-    <%= content_tag :li, product.external_id %>
-    <%= content_tag :li do %>
-      <a href=<%= product.product_url %>><%= product.product_url %></a>
+<div style='padding: 1rem'>
+  <h1>Nowe ogłoszenia</h1>
+  <%= content_tag :h3, "Dodane ogłoszenia: #{@products.size}" %>
+  <div style="display: flex; gap: 2rem; flex-direction: column">
+    <% @products.each do |product| %>
+      <%= link_to product.product_url, style: 'display: flex; gap: 1rem; padding: 0.5rem; border-radius: 0.5rem; background-color: white' do %>
+        <div style="display: flex; gap: 0.5rem">
+          <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 150px' %>
+          <div style='display: flex; flex-direction: column; justify-content: space-between'>
+            <%= content_tag :div, product.title, style: 'font-size: 1.5rem' %>
+            <div style='font-size: 1rem'>
+              <%= content_tag :span, 'Cena: ' %>
+              <%= content_tag :span, product.price %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-    <%= content_tag :li, product.title %>
-    <%= content_tag :li, product.price %>
-    <%= content_tag :li, product.external_service_name %>
-    <%= content_tag :li do %>
-      <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 150px' %>
-    <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
