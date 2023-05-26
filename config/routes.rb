@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   authenticated :user do
-    resources :searches
+    resources :searches do
+      resources :products, only: %i[index]
+    end
   end
 end
