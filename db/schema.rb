@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_05_24_142853) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "pghero_query_stats", force: :cascade do |t|
