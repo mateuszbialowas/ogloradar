@@ -46,3 +46,4 @@ after generating a new component
 ```
 http://localhost:3000/rails/mailers
 ```
+
