@@ -1,1 +1,27 @@
-<%= products.count %>
+<div style='padding: 1rem'>
+  <h1>Nowe ogłoszenia</h1>
+  <%= content_tag :h3, "Dodane ogłoszenia: #{products.size}" %>
+
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), class: 'px-6 py-3', scope: "col" %>
+        <%= content_tag :th, Product.human_attribute_name(:title), class: 'px-6 py-3', scope: "col" %>
+        <%= content_tag :th, Product.human_attribute_name(:price), class: 'px-6 py-3', scope: "col" %>
+      </tr>
+      </thead>
+      <tbody>
+      <% products.each do |product| %>
+        <tr class="bg-white border-b">
+          <%= content_tag :th, class: 'px-6 py-4 font-medium text-gray-900 whitespace-nowrap', scope: 'row' do %>
+            <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 100%' %>
+          <% end %>
+          <%= content_tag :td, product.title, class: 'px-6 py-4' %>
+          <%= content_tag :td, product.price, class: 'px-6 py-4' %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
