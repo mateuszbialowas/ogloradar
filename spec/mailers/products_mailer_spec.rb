@@ -13,7 +13,7 @@ RSpec.describe ProductsMailer do
     it 'renders the headers' do
       expect(mail.subject).to eq('Nowe ogłoszenia')
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(['mateusz.bialowas+ogloradar-stg2@gmail.com'])
+      expect(mail.from).to eq(['no-reply@mateuszbialowas.com'])
     end
 
     it 'renders the body' do
