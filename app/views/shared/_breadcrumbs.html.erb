@@ -5,8 +5,8 @@
     </ol>
   </nav>
 <% else %>
-  <nav class="flex m-4 px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 w-fit" aria-label="Breadcrumb">
-    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+  <nav class="flex m-4 px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 sm:w-fit max-w-[calc(100%-1rem)]" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3 overflow-x-scroll">
       <%= render_breadcrumbs builder: CustomBreadcrumbsBuilder %>
     </ol>
   </nav>
