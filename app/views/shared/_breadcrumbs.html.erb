@@ -1,1 +1,14 @@
-OKOK
+<% if theme.eql?(:default) %>
+  <nav class="flex m-4" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <%= render_breadcrumbs builder: CustomBreadcrumbsBuilder %>
+    </ol>
+  </nav>
+<% else %>
+  <nav class="flex m-4 px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 w-fit" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <%= render_breadcrumbs builder: CustomBreadcrumbsBuilder %>
+    </ol>
+  </nav>
+<% end %>
+

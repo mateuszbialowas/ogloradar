@@ -47,3 +47,16 @@ after generating a new component
 http://localhost:3000/rails/mailers
 ```
 
+## Using Breadcrumbs
+https://github.com/weppos/breadcrumbs_on_rails
+```
+# standard crumb with separator
+add_breadcrumb 'Home', :root_path
+
+# crumb with icon. Do not forget to add icon to the assets/images/icons/breadcrumbs
+add_breadcrumb "Dashboard", :root_path, options: { icon: :dashboard }
+
+# crumb without link
+add_breadcrumb "Dashboard"
+```
+All crumbs on current page generates without link.

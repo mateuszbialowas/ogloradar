@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class SearchesController < AuthenticatedController
-  add_breadcrumb "Dashboard", :root_path
-  add_breadcrumb "Wyszukiwania", :root_path
-  add_breadcrumb "Produkty", :root_path
+  add_breadcrumb 'Dashboard', :root_path, options: { icon: :dashboard }
+  add_breadcrumb 'Wyszukiwania', :searches_path, only: %i[index new edit]
 
   def index
     pagy, searches = pagy(policy_scope(Search))
@@ -11,13 +10,15 @@ class SearchesController < AuthenticatedController
   end
 
   def show
+    add_breadcrumb 'Wyszukiwania', :searches_path
     search = policy_scope(Search).find(params[:id])
+    add_breadcrumb "Wyszukiwanie: #{search.name}"
 
     render 'searches/show', locals: { search: }
   end
 
   def new
-    add_breadcrumb "index", root_path
+    add_breadcrumb 'Nowe wyszukiwanie'
 
     search = Search.new
     render 'searches/new', locals: { search: }
@@ -25,6 +26,7 @@ class SearchesController < AuthenticatedController
 
   def edit
     search = policy_scope(Search).find(params[:id])
+    add_breadcrumb "Edycja wyszukiwania: #{search.name}"
 
     render 'searches/edit', locals: { search: }
   end

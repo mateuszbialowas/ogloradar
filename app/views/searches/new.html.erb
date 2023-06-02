@@ -3,11 +3,6 @@
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">Nowe wyszukiwanie</h1>
   </div>
 </header>
+<%= render 'shared/breadcrumbs', theme: :solid %>
 
 <%= render 'form', search: %>
-
-<br>
-
-<div>
-  <%= link_to 'Back to searches', searches_path %>
-</div>
