@@ -5,12 +5,10 @@
         <td style="width: 34.5rem; max-width: 100%">
           <div class="sm-my-8" style="margin-top: 48px; margin-bottom: 48px; margin-left: auto; margin-right: auto; text-align: center; font-weight: 600;
             font-size: 1.875rem; line-height: 2.25rem;" ;>
-            <a href="https://ogloradar-stg.mateuszbialowas.com">
+            <%= link_to root_url do %>
               <%= tag.img(src: asset_url('logo.png'), width: 70, style: 'vertical-align: middle; line-height: 1; border: 0; margin-right: 0.25rem') %>
-              <span style="line-height: 2.25rem">
-                Ogloradar-stg
-              </span>
-            </a>
+              <%= content_tag :span, 'Ogloradar', style: 'line-height: 2.25rem' %>
+            <% end %>
           </div>
           <table style="width: 100%;" cellpadding="0" cellspacing="0" role="presentation">
             <tr>
@@ -40,7 +38,7 @@
                   Znajdź idealne ogłoszenie dla siebie
                 </p>
                 <p style="cursor: default; margin-bottom: 48px">
-                  <%= link_to 'Ogloradar-stg', 'https://ogloradar-stg.mateuszbialowas.com/', class: 'hover-important-text-decoration-underline', style: 'color: #4338ca; text-decoration: none' %>
+                  <%= link_to 'Ogloradar', root_url, class: 'hover-important-text-decoration-underline', style: 'color: #4338ca; text-decoration: none' %>
                 </p>
               </td>
             </tr>

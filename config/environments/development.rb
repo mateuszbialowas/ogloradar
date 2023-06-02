@@ -77,4 +77,6 @@ Rails.application.configure do
   Rack::MiniProfiler.config.position = 'bottom-right'
   config.hotwire_livereload.listen_paths << Rails.root.join('app/components')
   config.hotwire_livereload.reload_method = :turbo_stream
+
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 end

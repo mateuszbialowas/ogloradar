@@ -48,7 +48,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
@@ -70,8 +70,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: 'ogloradar-stg.mateuszbialowas.com', protocol: 'https' }
-
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.domain[:staging], protocol: 'https' }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: Rails.application.credentials.dig(:mailgun, Rails.env.to_sym, :api_key),
@@ -98,6 +97,8 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  Rails.application.routes.default_url_options[:host] = 'ogloradar.mateuszbialowas.com'
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
