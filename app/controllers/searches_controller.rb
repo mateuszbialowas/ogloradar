@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class SearchesController < AuthenticatedController
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Dashboard", :root_path
   add_breadcrumb "Wyszukiwania", :root_path
-  add_breadcrumb "Produkty"
+  add_breadcrumb "Produkty", :root_path
 
   def index
     pagy, searches = pagy(policy_scope(Search))
