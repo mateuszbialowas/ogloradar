@@ -7,6 +7,7 @@ ruby '3.2.1'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'breadcrumbs_on_rails'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'dry-monads'

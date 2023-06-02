@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class SearchesController < AuthenticatedController
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Wyszukiwania", :root_path
+  add_breadcrumb "Produkty"
+
   def index
     pagy, searches = pagy(policy_scope(Search))
     render 'searches/index', locals: { searches:, pagy: }
@@ -13,6 +17,8 @@ class SearchesController < AuthenticatedController
   end
 
   def new
+    add_breadcrumb "index", root_path
+
     search = Search.new
     render 'searches/new', locals: { search: }
   end
