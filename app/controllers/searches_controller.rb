@@ -2,7 +2,7 @@
 
 class SearchesController < AuthenticatedController
   add_breadcrumb 'Dashboard', :root_path, options: { icon: :dashboard }
-  add_breadcrumb 'Wyszukiwania', :searches_path, only: %i[index new edit]
+  add_breadcrumb 'Wyszukiwania', :searches_path, only: %i[index new show edit]
 
   def index
     pagy, searches = pagy(policy_scope(Search))
@@ -10,7 +10,6 @@ class SearchesController < AuthenticatedController
   end
 
   def show
-    add_breadcrumb 'Wyszukiwania', :searches_path
     search = policy_scope(Search).find(params[:id])
     add_breadcrumb "Wyszukiwanie: #{search.name}"
 
