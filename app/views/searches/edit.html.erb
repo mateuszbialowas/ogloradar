@@ -3,7 +3,7 @@
     <%= content_tag :h1, "Edytuj: #{search.name}", class: 'text-3xl font-bold tracking-tight text-gray-900' %>
   </div>
 </header>
-
+<%= render 'shared/breadcrumbs', theme: :solid %>
 <%= render 'form', search: %>
 
 <br>
