@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ErrorsController < ActionController::Base
+class ErrorsController < ApplicationController
   def internal_server_error
     render status: :internal_server_error
   end
