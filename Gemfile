@@ -15,6 +15,7 @@ gem 'httparty'
 gem 'inline_svg'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'lookbook', '>= 2.0.0'
 gem 'mailgun-ruby'
 gem 'nokogiri'
 gem 'pagy'
@@ -33,7 +34,6 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
-gem 'lookbook', '>= 2.0.0'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
