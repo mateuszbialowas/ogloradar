@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="h-full bg-white">
+<head>
+  <title>Ogloradar - error page</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+</head>
+
+<body>
+<main class="grid h-screen place-items-center">
+  <%= yield %>
+</main>
+</body>
+</html>
