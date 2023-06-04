@@ -25,7 +25,7 @@ pl:
         price: Cena  #g
         product_url: Adres URL produktu  #g
         search: :activerecord.models.search  #g
-        thumbnail_url: URL miniatury  #g
+        thumbnail_url: Miniatura  #g
         title: Tytuł  #g
 
       search:
