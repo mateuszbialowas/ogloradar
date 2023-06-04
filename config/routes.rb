@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
-    mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?
+    mount Lookbook::Engine, at: '/lookbook'
     mount PgHero::Engine, at: 'pghero'
   end
 
