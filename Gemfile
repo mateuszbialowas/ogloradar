@@ -33,6 +33,7 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
+gem 'lookbook', '>= 2.0.0'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -67,7 +68,6 @@ group :development do
   gem 'i18n-tasks'
   gem 'letter_opener'
   gem 'listen'
-  gem 'lookbook', '>= 2.0.0'
   gem 'rack-mini-profiler'
   gem 'web-console'
 end
