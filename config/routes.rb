@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
-    mount Lookbook::Engine, at: '/lookbook'
     mount PgHero::Engine, at: 'pghero'
   end
+  mount Lookbook::Engine, at: '/lookbook'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root 'dashboard#index'
