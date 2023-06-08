@@ -39,7 +39,15 @@ describe Api::Olx::FetchData do
     end
 
     context 'when response code is not 200' do
-      pending 'returns failure'
+      let(:response) { instance_double(HTTParty::Response, code: 500) }
+
+      before do
+        allow(HTTParty).to receive(:get).and_return(response)
+      end
+
+      it 'returns failure', vcr: 'olx/failure_fetched_data' do
+        expect(service.failure).to eq('Coś poszło nie tak. Skontaktuj się z administratorem')
+      end
     end
   end
 end
