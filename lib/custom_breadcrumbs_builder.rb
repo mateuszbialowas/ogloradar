@@ -9,7 +9,7 @@ class CustomBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder
   def render
     @elements.collect do |element|
       render_element(element)
-    end.join
+    end.join(arrow_icon)
   end
 
   def render_element(element)
@@ -27,9 +27,8 @@ class CustomBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder
   def current_element_to_html(element)
     @context.content_tag(:li, 'aria-current': 'page') do
       @context.content_tag(:div, class: 'flex items-center') do
-        icon(element) +
-          @context.content_tag(:span, compute_name(element),
-                               class: 'ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400')
+        @context.content_tag(:span, compute_name(element),
+                             class: 'ml-1 text-sm font-medium text-gray-500 underline md:ml-2 whitespace-nowrap')
       end
     end
   end
@@ -38,7 +37,7 @@ class CustomBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder
     @context.content_tag(:li, class: 'inline-flex items-center') do
       @context.link_to(compute_path(element),
                        class: 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600') do
-        icon(element) + compute_name(element)
+        compute_name(element)
       end
     end
   end
