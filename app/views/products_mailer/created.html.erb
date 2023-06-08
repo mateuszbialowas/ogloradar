@@ -16,7 +16,7 @@
           <%= content_tag :tr, style: "border-bottom-width: 1px; #{index.even? ? 'background-color: #fff' : 'background-color: #f9fafb'}" do %>
             <%= content_tag :td, style: 'padding: 16px 24px;' do %>
               <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
-                <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 100px' %>
+                <%= email_image_tag product.thumbnail_url, style: 'width: 100px' %>
               <% end %>
             <% end %>
             <%= content_tag :td, style: 'padding: 16px 24px;' do %>

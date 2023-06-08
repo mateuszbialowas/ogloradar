@@ -63,7 +63,10 @@ module Api
       end
 
       def product_url(product)
-        "https://www.olx.pl#{product.css('a').first['href']}"
+        href = product.css('a').first['href']
+        return href if href.start_with?('http')
+
+        "https://www.olx.pl#{href}"
       end
 
       def product_title(product)
