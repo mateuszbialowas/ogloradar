@@ -28,7 +28,7 @@ class CustomBreadcrumbsBuilder < BreadcrumbsOnRails::Breadcrumbs::Builder
     @context.content_tag(:li, 'aria-current': 'page') do
       @context.content_tag(:div, class: 'flex items-center') do
         @context.content_tag(:span, compute_name(element),
-                             class: 'ml-1 text-sm font-medium text-gray-500 underline md:ml-2 dark:text-gray-400 whitespace-nowrap')
+                             class: 'ml-1 text-sm font-medium text-gray-500 underline md:ml-2 whitespace-nowrap')
       end
     end
   end
