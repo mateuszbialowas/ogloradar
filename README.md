@@ -60,3 +60,8 @@ add_breadcrumb "Dashboard", :root_path, options: { icon: :dashboard }
 add_breadcrumb "Dashboard"
 ```
 All crumbs on current page generates without link.
+
+## Letter Opener
+```
+file:///Users/mateuszbialowas/Documents/learn/ogloradar/tmp/letter_opener
+```

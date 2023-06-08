@@ -43,18 +43,14 @@ module Api
         "https://www.olx.pl#{next_page['href']}" if next_page
       end
 
-      def parse_product(product) # rubocop:disable Metrics/MethodLength
+      def parse_product(product)
         {
           external_id: external_id(product),
           product_url: product_url(product),
           title: product_title(product),
           price: product_price(product),
           thumbnail_url: thumbnail_url(product),
-          external_service_name: 'olx',
-          advertised: product_advertised?(product),
-          location: product_location(product),
-          date: product_date(product),
-          area: product_area(product)
+          external_service_name: 'olx'
         }
       end
 
@@ -79,22 +75,6 @@ module Api
 
       def thumbnail_url(product)
         product.css('img').first['src'] || 'https://placehold.co/400'
-      end
-
-      def product_advertised?(product)
-        product.css('div[data-testid="adCard-featured"]').first&.text.eql?('Wyróżnione') || false
-      end
-
-      def product_location(product)
-        product.css('p[data-testid="location-date"]').first.text.split('-').first.strip
-      end
-
-      def product_date(product)
-        product.css('p[data-testid="location-date"]').first.text.split('-').last.strip
-      end
-
-      def product_area(product)
-        product.css('span.css-643j0o').first.text
       end
     end
   end
