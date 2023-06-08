@@ -5,7 +5,7 @@
   </div>
 </header>
 
-<section class="">
+<section class="mx-auto max-w-screen-xl">
   <div class="py-8 px-4 max-w-2xl lg:py-16">
     <dl>
       <%= content_tag :dt, Search.human_attribute_name(:name), class: 'mb-2 font-semibold leading-none text-gray-900' %>
@@ -13,7 +13,9 @@
     </dl>
     <dl>
       <%= content_tag :dt, Search.human_attribute_name(:uri), class: 'mb-2 font-semibold leading-none text-gray-900' %>
-      <%= content_tag :dd, search.uri, class: 'mb-4 font-light text-gray-500 sm:mb-5' %>
+      <%= content_tag :dd, class: 'mb-4 font-light text-gray-500 sm:mb-5 break-words' do %>
+        <%= link_to search.uri, search.uri, class: 'underline hover:text-primary-500' %>
+      <% end %>
     </dl>
     <dl>
       <%= content_tag :dt, Search.human_attribute_name(:status), class: 'mb-2 font-semibold leading-none text-gray-900' %>
@@ -26,7 +28,7 @@
           <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path>
         </svg>
         Edytuj
-    <% end %>
+      <% end %>
 
       <%= button_to search, method: :delete, class: 'inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center' do %>
         <svg aria-hidden="true" class="w-5 h-5 mr-1.5 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
