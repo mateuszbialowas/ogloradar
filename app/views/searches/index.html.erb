@@ -50,7 +50,7 @@
             <% searches.each do |search| %>
               <%= content_tag :tr, class: 'border-b' do %>
                 <%= content_tag :th, search.name, class: 'px-4 py-3 font-medium text-gray-900 whitespace-nowrap hover:underline' do %>
-                  <%= link_to search.name, search_path(search) %>
+                  <%= link_to search.name, search_path(search), data: { turbo: false } %>
                 <% end %>
                 <%= content_tag :td, class: 'px-4 py-3' do %>
                   <% render Searches::StatusComponent.new(status: search.status) %>
