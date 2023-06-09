@@ -32,9 +32,9 @@ module Api
 
       def parse_products(body)
         init_config = body.css('script#olx-init-config').first.text
-        prerendered_state = init_config.match(/window.__PRERENDERED_STATE__= \"(.*?)\";/)[1]
-        prerendered_state = JSON.parse("\"#{prerendered_state}\"")
-        products = JSON.parse(prerendered_state)['listing']['listing']['ads']
+        prerendered_state = init_config[/window\.__PRERENDERED_STATE__= (.*);/, 1]
+        parsed_data = JSON.parse(JSON.parse(prerendered_state))
+        products = parsed_data['listing']['listing']['ads']
         products.map do |product|
           parse_product(product)
         end
