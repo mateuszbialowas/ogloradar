@@ -2,11 +2,9 @@
 
 # Preview all emails at http://localhost:3000/rails/mailers/products
 class ProductsPreview < BasePreview
-  # Preview this email at http://localhost:3000/rails/mailers/products/created
+  # Preview this email at http://localhost:3000/rails/mailers/products/notify_with_products
 
-  def created
-    search = create(:search)
-    create_list(:product, 3, search:)
-    ProductsMailer.created(User.first, Product.where(search:))
+  def notify_with_products
+    ProductsMailer.notify_with_products(User.first, Product.all)
   end
 end
