@@ -25,7 +25,7 @@ module Ogloradar
     config.active_record.default_timezone = :local
 
     config.i18n.default_locale = :pl
-    I18n.available_locales = [:pl]
+    I18n.available_locales = %i[pl en]
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

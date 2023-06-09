@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+gem 'avo'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'breadcrumbs_on_rails'
