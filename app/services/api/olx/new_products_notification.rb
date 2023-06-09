@@ -24,7 +24,7 @@ module Api
       private
 
       def send_mail(new_products)
-        ProductsMailer.created(@search.user, new_products).deliver_now
+        ProductsMailer.notify_with_products(@search.user, new_products).deliver_now
       end
     end
   end

@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe ProductsMailer do
-  describe 'created' do
-    subject(:mail) { described_class.created(user, Product.all) }
+  describe 'notify_with_products' do
+    subject(:mail) { described_class.notify_with_products(user, Product.all) }
 
     let(:user) { create(:user) }
     let(:search) { create(:search, user:) }
