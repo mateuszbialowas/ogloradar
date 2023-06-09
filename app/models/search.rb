@@ -7,4 +7,8 @@ class Search < ApplicationRecord
   enum status: { active: 'active', inactive: 'inactive' }
 
   validates :name, :uri, :status, presence: true
+
+  def self.ransackable_attributes(_auth_object = nil)
+    ['name']
+  end
 end

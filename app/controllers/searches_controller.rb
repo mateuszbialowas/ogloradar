@@ -5,8 +5,9 @@ class SearchesController < AuthenticatedController
   add_breadcrumb 'Wyszukiwania', :searches_path, only: %i[index new show edit]
 
   def index
-    pagy, searches = pagy(policy_scope(Search))
-    render 'searches/index', locals: { searches:, pagy: }
+    q = policy_scope(Search).ransack(params[:q])
+    pagy, searches = pagy(q.result(distinct: true))
+    render 'searches/index', locals: { searches:, pagy:, q: }
   end
 
   def show
