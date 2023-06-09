@@ -3,7 +3,6 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
-  mount Avo::Engine, at: Avo.configuration.root_path
   match '/404', to: 'errors#not_found', via: :all
   match '/422', to: 'errors#unprocessable_entity', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
     mount PgHero::Engine, at: 'pghero'
+    mount Avo::Engine, at: Avo.configuration.root_path
   end
   mount Lookbook::Engine, at: '/lookbook'
 

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # For more information regarding these settings check out our docs https://docs.avohq.io
 Avo.configure do |config|
   ## == Routing ==
-  config.root_path = '/avo'
+  config.root_path = '/admin'
   # used only when you have custom `map` configuration in your config.ru
   # config.prefix_path = "/internal"
 
@@ -18,7 +20,7 @@ Avo.configure do |config|
   end
 
   ## == Authentication ==
-  # config.current_user_method = {}
+  config.current_user_method = :current_user
   # config.authenticate_with do
   # end
 
@@ -37,7 +39,7 @@ Avo.configure do |config|
   # config.authorization_client = :pundit
 
   ## == Localization ==
-  # config.locale = 'en-US'
+  config.locale = 'pl'
 
   ## == Resource options ==
   # config.resource_controls_placement = :right
@@ -54,9 +56,9 @@ Avo.configure do |config|
   # config.cache_resource_filters = ->(current_user:, resource:) { current_user.cache_resource_filters?}
 
   ## == Customization ==
-  # config.app_name = 'Avocadelicious'
-  # config.timezone = 'UTC'
-  # config.currency = 'USD'
+  config.app_name = 'Ogloradar'
+  config.timezone = 'Europe/Warsaw'
+  config.currency = 'PLN'
   # config.hide_layout_when_printing = false
   # config.full_width_container = false
   # config.full_width_index_view = false
@@ -69,20 +71,20 @@ Avo.configure do |config|
   # config.field_wrapper_layout = true
 
   ## == Branding ==
-  # config.branding = {
-  #   colors: {
-  #     background: "248 246 242",
-  #     100 => "#CEE7F8",
-  #     400 => "#399EE5",
-  #     500 => "#0886DE",
-  #     600 => "#066BB2",
-  #   },
-  #   chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
-  #   logo: "/avo-assets/logo.png",
-  #   logomark: "/avo-assets/logomark.png",
-  #   placeholder: "/avo-assets/placeholder.svg",
-  #   favicon: "/avo-assets/favicon.ico"
-  # }
+  config.branding = {
+    colors: {
+      background: '248 246 242',
+      '100': '#eff6ff',
+      '400': '#60a5fa',
+      '500': '#3b82f6',
+      '600': '#2563eb'
+    },
+    #   chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
+    logo: '/logo.png',
+    #   logomark: "/avo-assets/logomark.png",
+    #   placeholder: "/avo-assets/placeholder.svg",
+    favicon: '/favicon.ico'
+  }
 
   ## == Breadcrumbs ==
   # config.display_breadcrumbs = true
