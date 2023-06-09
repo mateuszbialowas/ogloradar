@@ -4,6 +4,7 @@ module Api
   module Olx
     class FetchData
       class OlxRequestError < StandardError; end
+
       include BaseService
 
       def initialize(uri:)
@@ -12,7 +13,6 @@ module Api
 
       def call
         response = yield make_request
-        parsed_data = yield parse_response(response)
         parsed_body = Nokogiri::HTML(response.body)
         parsed_products = parse_products(parsed_body)
         next_page = next_page_uri(parsed_body)
@@ -30,25 +30,11 @@ module Api
         default_failure
       end
 
-      def parse_response(response)
-        body = Nokogiri::HTML(response.body)
-        # get data <script type="text/javascript" id="olx-init-config">
-        init_config = body.css('script#olx-init-config').first.text
-        match = init_config.match(/window.__PRERENDERED_STATE__= \"(.*?)\";/)[1]
-        # add " at the beginning and at the end of the string
-        match = "\"#{match}\""
-        # parse json
-        match = JSON.parse(match)
-        File.open('match.json', 'w') { |file| file.write(match) }
-        total_pages = JSON.parse(match)['listing']['listing']['totalPages']
-        ads = JSON.parse(match)['listing']['listing']['ads']
-
-        match
-      end
-
       def parse_products(body)
-        listing_grid = body.css('div[data-testid="listing-grid"]').first
-        products = listing_grid.css('div[data-cy="l-card"]')
+        init_config = body.css('script#olx-init-config').first.text
+        prerendered_state = init_config.match(/window.__PRERENDERED_STATE__= \"(.*?)\";/)[1]
+        prerendered_state = JSON.parse("\"#{prerendered_state}\"")
+        products = JSON.parse(prerendered_state)['listing']['listing']['ads']
         products.map do |product|
           parse_product(product)
         end
@@ -62,36 +48,13 @@ module Api
 
       def parse_product(product)
         {
-          external_id: external_id(product),
-          product_url: product_url(product),
-          title: product_title(product),
-          price: product_price(product),
-          thumbnail_url: thumbnail_url(product),
+          external_id: product['id'],
+          product_url: product['url'],
+          title: product['title'],
+          price: product['price']['displayValue'],
+          thumbnail_url: product['photos'].first,
           external_service_name: 'olx'
         }
-      end
-
-      def external_id(product)
-        product.attributes['id'].value
-      end
-
-      def product_url(product)
-        href = product.css('a').first['href']
-        return href if href.start_with?('http')
-
-        "https://www.olx.pl#{href}"
-      end
-
-      def product_title(product)
-        product.css('h6').first.text
-      end
-
-      def product_price(product)
-        product.css('p[data-testid="ad-price"]').first.text
-      end
-
-      def thumbnail_url(product)
-        product.css('img').first['src'] || 'https://placehold.co/400'
       end
     end
   end
