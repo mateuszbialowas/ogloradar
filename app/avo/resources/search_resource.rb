@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UserResource < Avo::BaseResource
+class SearchResource < Avo::BaseResource
   self.title = :id
   self.includes = []
   # self.search_query = -> do
@@ -9,9 +9,11 @@ class UserResource < Avo::BaseResource
 
   field :id, as: :id
   # Fields generated from the model
-  field :email, as: :text
-  field :confirmed_at, as: :date_time
-  field :admin, as: :boolean
-  field :searches, as: :has_many
+  field :name, as: :text
+  field :uri, as: :text
+  field :status, as: :select, enum: ::Search.statuses
+  field :user_id, as: :number
+  field :user, as: :belongs_to
+  field :products, as: :has_many
   # add fields here
 end
