@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
 class SearchResource < Avo::BaseResource
-  self.title = :id
+  self.title = :name
   self.includes = []
-  # self.search_query = -> do
-  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
-  # end
+  self.search_query = lambda {
+    scope.ransack(id_eq: params[:q], name_cont: params[:q], m: 'or').result(distinct: false)
+  }
 
   field :id, as: :id
-  # Fields generated from the model
   field :name, as: :text
   field :uri, as: :text, only_on: :show
   field :status, as: :select, enum: ::Search.statuses
   field :user, as: :belongs_to
   field :products, as: :has_many
-  # add fields here
+  field :products_count, as: :number do |search|
+    search.products.count
+  end
 end
