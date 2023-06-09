@@ -10,9 +10,8 @@ class SearchResource < Avo::BaseResource
   field :id, as: :id
   # Fields generated from the model
   field :name, as: :text
-  field :uri, as: :text
+  field :uri, as: :text, only_on: :show
   field :status, as: :select, enum: ::Search.statuses
-  field :user_id, as: :number
   field :user, as: :belongs_to
   field :products, as: :has_many
   # add fields here
