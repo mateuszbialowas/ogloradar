@@ -4,7 +4,6 @@ module Api
   module Olx
     class FetchData
       class OlxRequestError < StandardError; end
-
       include BaseService
 
       def initialize(uri:)
