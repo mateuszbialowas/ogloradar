@@ -9,6 +9,6 @@ class Search < ApplicationRecord
   validates :name, :uri, :status, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
-    ['name']
+    %w[name status created_at]
   end
 end

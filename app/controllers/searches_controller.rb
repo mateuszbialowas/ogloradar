@@ -6,6 +6,7 @@ class SearchesController < AuthenticatedController
 
   def index
     q = policy_scope(Search).ransack(params[:q])
+    q.sorts = 'created_at desc' if q.sorts.empty?
     pagy, searches = pagy(q.result(distinct: true))
     render 'searches/index', locals: { searches:, pagy:, q: }
   end
