@@ -12,6 +12,7 @@ module Api
 
       def call
         response = yield make_request
+        parsed_data = yield parse_response(response)
         parsed_body = Nokogiri::HTML(response.body)
         parsed_products = parse_products(parsed_body)
         next_page = next_page_uri(parsed_body)
@@ -27,6 +28,22 @@ module Api
       rescue StandardError => e
         Sentry.capture_exception(e)
         default_failure
+      end
+
+      def parse_response(response)
+        body = Nokogiri::HTML(response.body)
+        # get data <script type="text/javascript" id="olx-init-config">
+        init_config = body.css('script#olx-init-config').first.text
+        match = init_config.match(/window.__PRERENDERED_STATE__= \"(.*?)\";/)[1]
+        # add " at the beginning and at the end of the string
+        match = "\"#{match}\""
+        # parse json
+        match = JSON.parse(match)
+        File.open('match.json', 'w') { |file| file.write(match) }
+        total_pages = JSON.parse(match)['listing']['listing']['totalPages']
+        ads = JSON.parse(match)['listing']['listing']['ads']
+
+        match
       end
 
       def parse_products(body)
