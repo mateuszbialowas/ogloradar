@@ -9,7 +9,7 @@
           <tr>
             <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), style: 'padding: 12px 24px;', scope: 'col' %>
             <%= content_tag :th, Product.human_attribute_name(:title), style: 'padding: 12px 24px', scope: 'col' %>
-            <%= content_tag :th, Product.human_attribute_name(:price), style: 'padding: 12px 24px; white-space: nowrap;', scope: 'col' %>
+            <%= content_tag :th, Product.human_attribute_name(:price), style: 'padding: 12px 24px', scope: 'col' %>
           </tr>
           </thead>
           <tbody>
@@ -23,7 +23,7 @@
               <%= content_tag :td, style: 'padding: 16px 24px;' do %>
                 <%= link_to product.title, product.product_url, style: 'font-weight: 500; color: #2563eb;' %>
               <% end %>
-              <%= content_tag :td, product.price, style: 'padding: 16px 24px; white-space: nowrap;' %>
+              <%= content_tag :td, product.price, style: 'padding: 16px 24px;' %>
             <% end %>
           <% end %>
           </tbody>
