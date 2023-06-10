@@ -36,7 +36,7 @@
   <div class="sm-hidden">
 
     <% @products.each_with_index do |product, index| %>
-      <div style="margin: 16px auto; max-width: 256px; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fff;">
+      <div style="margin: 16px auto; max-width: 256px; border-radius: 8px; border: 1px solid #e5e7eb; background-color: #fff;">
         <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
           <%= email_image_tag product.thumbnail_url, style: 'max-width: 100%; vertical-align: middle; line-height: 1; border: 0; border-top-left-radius: 8px; border-top-right-radius: 8px' %>
         <% end %>
