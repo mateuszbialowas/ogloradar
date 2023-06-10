@@ -3,7 +3,7 @@
   <%= content_tag :h3, "Dodane ogłoszenia: #{@products.size}" %>
   <div class="sm-block" style="display: none">
     <div role="article" aria-roledescription="email" aria-label lang="pl">
-      <div class="sm-rounded-lg" style="position: relative; overflow-x: auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)">
+      <div class="sm-rounded-lg" style="position: relative; overflow-x: auto">
         <table style="width: 100%; text-align: left; font-size: 14px; color: #6b7280" cellpadding="0" cellspacing="0" role="presentation">
           <thead style="background-color: #f9fafb; font-size: 12px; text-transform: uppercase; color: #374151">
           <tr>
@@ -36,7 +36,7 @@
   <div class="sm-hidden">
 
     <% @products.each_with_index do |product, index| %>
-      <div style="margin: 16px auto; max-width: 256px; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fff; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)">
+      <div style="margin: 16px auto; max-width: 256px; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fff;">
         <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
           <%= email_image_tag product.thumbnail_url, style: 'max-width: 100%; vertical-align: middle; line-height: 1; border: 0; border-top-left-radius: 8px; border-top-right-radius: 8px' %>
         <% end %>
