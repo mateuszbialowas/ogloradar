@@ -1,32 +1,54 @@
 <div style='padding: 1rem'>
   <h1>Nowe ogłoszenia</h1>
   <%= content_tag :h3, "Dodane ogłoszenia: #{@products.size}" %>
-  <div role="article" aria-roledescription="email" aria-label lang="pl">
-    <div class="sm-rounded-lg" style="position: relative; overflow-x: auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)">
-      <table style="width: 100%; text-align: left; font-size: 14px; color: #6b7280" cellpadding="0" cellspacing="0" role="presentation">
-        <thead style="background-color: #f9fafb; font-size: 12px; text-transform: uppercase; color: #374151">
-        <tr>
-          <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), style: 'padding: 12px 24px;', scope: 'col' %>
-          <%= content_tag :th, Product.human_attribute_name(:title), style: 'padding: 12px 24px', scope: 'col' %>
-          <%= content_tag :th, Product.human_attribute_name(:price), style: 'padding: 12px 24px; white-space: nowrap;', scope: 'col' %>
-        </tr>
-        </thead>
-        <tbody>
-        <% @products.each_with_index do |product, index| %>
-          <%= content_tag :tr, style: "border-bottom-width: 1px; #{index.even? ? 'background-color: #fff' : 'background-color: #f9fafb'}" do %>
-            <%= content_tag :td, style: 'padding: 16px 24px;' do %>
-              <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
-                <%= email_image_tag product.thumbnail_url, style: 'width: 200px' %>
+  <div class="sm-block" style="display: none">
+    <div role="article" aria-roledescription="email" aria-label lang="pl">
+      <div class="sm-rounded-lg" style="position: relative; overflow-x: auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)">
+        <table style="width: 100%; text-align: left; font-size: 14px; color: #6b7280" cellpadding="0" cellspacing="0" role="presentation">
+          <thead style="background-color: #f9fafb; font-size: 12px; text-transform: uppercase; color: #374151">
+          <tr>
+            <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), style: 'padding: 12px 24px;', scope: 'col' %>
+            <%= content_tag :th, Product.human_attribute_name(:title), style: 'padding: 12px 24px', scope: 'col' %>
+            <%= content_tag :th, Product.human_attribute_name(:price), style: 'padding: 12px 24px; white-space: nowrap;', scope: 'col' %>
+          </tr>
+          </thead>
+          <tbody>
+          <% @products.each_with_index do |product, index| %>
+            <%= content_tag :tr, style: "border-bottom-width: 1px; #{index.even? ? 'background-color: #fff' : 'background-color: #f9fafb'}" do %>
+              <%= content_tag :td, style: 'padding: 16px 24px;' do %>
+                <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
+                  <%= email_image_tag product.thumbnail_url, style: 'width: 200px' %>
+                <% end %>
               <% end %>
+              <%= content_tag :td, style: 'padding: 16px 24px;' do %>
+                <%= link_to product.title, product.product_url, style: 'font-weight: 500; color: #2563eb;' %>
+              <% end %>
+              <%= content_tag :td, product.price, style: 'padding: 16px 24px; white-space: nowrap;' %>
             <% end %>
-            <%= content_tag :td, style: 'padding: 16px 24px;' do %>
-              <%= link_to product.title, product.product_url, style: 'font-weight: 500; color: #2563eb;' %>
-            <% end %>
-            <%= content_tag :td, product.price, style: 'padding: 16px 24px; white-space: nowrap;' %>
           <% end %>
-        <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
+
+  <div class="sm-hidden">
+
+    <% @products.each_with_index do |product, index| %>
+      <div style="margin: 16px auto; max-width: 256px; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fff; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)">
+        <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
+          <%= email_image_tag product.thumbnail_url, style: 'max-width: 100%; vertical-align: middle; line-height: 1; border: 0; border-top-left-radius: 8px; border-top-right-radius: 8px' %>
+        <% end %>
+        <div style="padding: 20px; padding-top: 10px">
+          <%= link_to product.product_url, style: 'font-weight: 500; color: #2563eb;' do %>
+            <%= content_tag :h5, product.title, style: 'margin-bottom: 8px; margin-top: 16px; font-size: 20px; font-weight: 700; letter-spacing: -0.025em; color: #111827' %>
+          <% end %>
+          <%= link_to product.price, product.product_url, style: 'display: inline-block; margin-top: 4px; border-radius: 8px; background-color: #1d4ed8; padding: 8px 12px; text-align: center; font-size: 14px; font-weight: 500; color: #fff' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
 </div>
