@@ -21,9 +21,9 @@ describe Api::Olx::NewProductsNotification do
       expect(service).to be_a(Success)
     end
 
-    it 'not sends email' do
+    it 'sends email' do
       service
-      expect(ActionMailer::Base.deliveries.count).to eq(0)
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
   end
 

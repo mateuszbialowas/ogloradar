@@ -8,7 +8,7 @@ class OlxApiSchedulerJob
   def perform
     active_searches = Search.active
     active_searches.each do |search|
-      Api::Olx::NewProductsNotificationJob.perform_async(search.id)
+      Api::Olx::NewProductsNotification.new(search:).call
     end
   end
 end
