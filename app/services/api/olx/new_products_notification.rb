@@ -15,8 +15,6 @@ module Api
 
         new_products = @search.products.where('created_at > ?', timestamp)
 
-        return Success() if new_products.empty?
-
         send_mail(new_products)
         Success()
       end
