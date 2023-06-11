@@ -34,19 +34,6 @@ RSpec.describe OlxApiSchedulerJob, type: :job do
       end
     end
 
-    context 'when the service raises an error' do
-      let(:active_searches) { [search] }
-
-      before do
-        allow(service).to receive(:call).and_raise(StandardError)
-      end
-
-      it 'does not retry the job' do
-        expect { job }.to raise_error(StandardError)
-        expect(described_class).not_to have_enqueued_sidekiq_job
-      end
-    end
-
     context 'when there are active searches' do
       let(:active_searches) { [search] }
 

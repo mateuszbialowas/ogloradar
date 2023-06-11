@@ -25,7 +25,7 @@ module Api
 
       def persist_products(products)
         products.each do |product|
-          next if Product.exists?(external_id: product[:external_id])
+          next if @search.products.exists?(external_id: product[:external_id])
 
           Product.create(product.merge(search: @search))
         end
