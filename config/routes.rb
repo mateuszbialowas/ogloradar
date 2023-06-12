@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
     mount PgHero::Engine, at: 'pghero'
+    mount Avo::Engine, at: Avo.configuration.root_path
   end
   mount Lookbook::Engine, at: '/lookbook'
 
