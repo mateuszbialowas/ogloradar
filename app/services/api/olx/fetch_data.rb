@@ -23,10 +23,10 @@ module Api
 
       def make_request
         response = HTTParty.get(@uri)
-        response.code.eql?(200) ? Success(response) : raise(OlxRequestError, response)
-      rescue StandardError => e
-        Sentry.capture_exception(e)
-        default_failure
+
+        return Success(response) if response.code.eql?(200)
+
+        raise OlxRequestError, "Olx request failed with response #{response}"
       end
 
       def parse_products(body)
