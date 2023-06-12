@@ -27,7 +27,7 @@ module Api
         products.each do |product|
           next if @search.products.exists?(external_id: product[:external_id])
 
-          Product.create(product.merge(search: @search))
+          Product.create!(product.merge(search: @search))
         end
       end
     end
