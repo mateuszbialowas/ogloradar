@@ -164,8 +164,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    google-protobuf (3.23.2-arm64-darwin)
-    google-protobuf (3.23.2-x86_64-linux)
     hashdiff (1.0.1)
     highline (2.1.0)
     hotwire-livereload (1.2.3)
@@ -270,8 +268,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.3)
-    pg_query (4.2.1)
-      google-protobuf (>= 3.22.3)
     pghero (3.3.3)
       activerecord (>= 6)
     pry (0.14.2)
@@ -510,7 +506,6 @@ DEPENDENCIES
   nokogiri
   pagy
   pg (~> 1.1)
-  pg_query
   pghero
   pry
   puma (~> 5.0)
