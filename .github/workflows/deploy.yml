@@ -1,7 +1,7 @@
 name: Deploy to staging with dokku
 on:
   push:
-    branches: [ main ]
+    branches: [ staging ]
   workflow_dispatch:
 
 jobs:
@@ -19,4 +19,4 @@ jobs:
         with:
           git_remote_url: 'ssh://dokku@128.140.34.151:22/ogloradar-stg'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY_STAGING }}
-          branch: main
+          branch: staging
