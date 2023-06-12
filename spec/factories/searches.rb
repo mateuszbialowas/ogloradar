@@ -5,6 +5,6 @@ FactoryBot.define do
     name { FFaker::Lorem.word }
     uri { 'MyString' }
     status { 'active' }
-    user { create(:user) }
+    user
   end
 end
