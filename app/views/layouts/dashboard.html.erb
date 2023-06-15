@@ -12,6 +12,7 @@
 </head>
 
 <body class="h-full">
+<%= query_diet_widget if current_user&.admin? %>
 <%= render FlashesComponent.new(flash:, position: 'bottom-right') %>
 <%= render NavbarComponent.new(current_user:) do %>
   <%= yield %>
