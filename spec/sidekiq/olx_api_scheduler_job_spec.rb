@@ -34,6 +34,16 @@ RSpec.describe OlxApiSchedulerJob, type: :job do
       end
     end
 
+    context 'when there are active searches' do
+      let(:active_searches) { [search] }
+
+      it 'calls the service for each active search' do
+        described_class.new.perform
+        expect(Api::Olx::NewProductsNotification).to have_received(:new).with(search:).once
+        expect(service).to have_received(:call).once
+      end
+    end
+
     context 'when the service raises an error' do
       let(:active_searches) { [search] }
 
@@ -44,16 +54,6 @@ RSpec.describe OlxApiSchedulerJob, type: :job do
       it 'does not retry the job' do
         expect { job }.to raise_error(StandardError)
         expect(described_class).not_to have_enqueued_sidekiq_job
-      end
-    end
-
-    context 'when there are active searches' do
-      let(:active_searches) { [search] }
-
-      it 'calls the service for each active search' do
-        described_class.new.perform
-        expect(Api::Olx::NewProductsNotification).to have_received(:new).with(search:).once
-        expect(service).to have_received(:call).once
       end
     end
   end
