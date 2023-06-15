@@ -29,12 +29,8 @@ describe Api::Olx::FetchData do
     context 'when request fails' do
       let(:uri) { 'https://www.bad_request.com' }
 
-      it 'returns failure', vcr: 'olx/failure_fetched_data' do
-        expect(service).to be_a(Failure)
-      end
-
-      it 'returns error message', vcr: 'olx/failure_fetched_data' do
-        expect(service.failure).to eq('Coś poszło nie tak. Skontaktuj się z administratorem')
+      it 'raise error', vcr: 'olx/failure_fetched_data' do
+        expect { service }.to raise_error(SocketError)
       end
     end
 
@@ -46,7 +42,7 @@ describe Api::Olx::FetchData do
       end
 
       it 'returns failure', vcr: 'olx/failure_fetched_data' do
-        expect(service.failure).to eq('Coś poszło nie tak. Skontaktuj się z administratorem')
+        expect { service }.to raise_error(Api::Olx::FetchData::OlxRequestError)
       end
     end
   end
