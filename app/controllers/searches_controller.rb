@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SearchesController < AuthenticatedController
-  add_breadcrumb 'Dashboard', :root_path, options: { icon: :dashboard }
   add_breadcrumb 'Wyszukiwania', :searches_path, only: %i[index new show edit]
 
   def index

@@ -1,27 +1,44 @@
-<div style='padding: 1rem'>
-  <h1>Nowe ogłoszenia</h1>
-  <%= content_tag :h3, "Dodane ogłoszenia: #{products.size}" %>
-
-  <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-gray-500">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-      <tr>
-        <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), class: 'px-6 py-3', scope: 'col' %>
-        <%= content_tag :th, Product.human_attribute_name(:title), class: 'px-6 py-3', scope: 'col' %>
-        <%= content_tag :th, Product.human_attribute_name(:price), class: 'px-6 py-3', scope: 'col' %>
-      </tr>
-      </thead>
-      <tbody>
-      <% products.each do |product| %>
-        <tr class="bg-white border-b">
-          <%= content_tag :th, class: 'px-6 py-4 font-medium text-gray-900 whitespace-nowrap', scope: 'row' do %>
-            <%= image_tag product.thumbnail_url || 'placeholder-image.jpg', alt: 'Brak zdjęcia', style: 'width: 100%' %>
-          <% end %>
-          <%= content_tag :td, product.title, class: 'px-6 py-4' %>
-          <%= content_tag :td, product.price, class: 'px-6 py-4' %>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+<header class="bg-white shadow">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <%= render 'shared/breadcrumbs' %>
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Produkty</h1>
   </div>
-</div>
+</header>
+
+
+<%= render 'searches/search_navbar', search: %>
+
+
+<%= turbo_frame_tag 'products_filters' do %>
+  <section class="p-3 sm:p-5 h-full">
+    <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+      <div class="bg-white relative shadow-md sm:rounded-lg">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <%= content_tag :th, Product.human_attribute_name(:thumbnail_url), class: 'px-4 py-3' %>
+              <%= content_tag :th, Product.human_attribute_name(:title), class: 'px-4 py-3' %>
+              <%= content_tag :th, Product.human_attribute_name(:price), class: 'px-4 py-3' %>
+            </tr>
+            </thead>
+            <tbody>
+            <% products.each do |product| %>
+              <%= content_tag :tr, class: 'border-b' do %>
+                <%= content_tag :td, class: 'px-4 py-3' do %>
+                  <%= link_to product.product_url, target: '_blank', rel: 'noopener' do %>
+                    <%= image_tag product.thumbnail_url, alt: 'Brak zdjęcia', class: 'rounded-lg sm:max-w-[12rem]' %>
+                  <% end %>
+                <% end %>
+                <%= content_tag :td, product.title, class: 'px-4 py-3' %>
+                <%= content_tag :td, product.price, class: 'px-4 py-3' %>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+        <%== render partial: 'pagy/nav', locals: { pagy: } %>
+      </div>
+    </div>
+  </section>
+<% end %>
