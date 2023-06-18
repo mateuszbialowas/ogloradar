@@ -1,3 +1,6 @@
+# skip rubocop
+# rubocop:disable Layout/LineLength
+
 # frozen_string_literal: true
 # # frozen_string_literal: true
 #
@@ -138,3 +141,5 @@
 #     time:          :vertical_multi_select
 #   }
 # end
+
+# rubocop:enable Layout/LineLength
