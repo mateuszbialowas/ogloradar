@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Uncomment this and change the path if necessary to include your own
 # components.
@@ -8,25 +9,16 @@
 #
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  # Wrappers are used by the form builder to generate a
-  # complete input. You can remove any component from the
-  # wrapper, change the order or even add your own to the
-  # stack. The options given below are used to wrap the
-  # whole input.
-  config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
+  # default_wrapper
+  config.default_wrapper = :default
+  config.wrappers :default, class: 'mb-4' do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
 
-    # Determines whether to use HTML5 (:email, :url, ...)
-    # and required attributes
     b.use :html5
-
-    # Calculates placeholders automatically from I18n
-    # You can also pass a string as f.input placeholder: "Placeholder"
     b.use :placeholder
 
     ## Optional extensions
@@ -51,30 +43,31 @@ SimpleForm.setup do |config|
     # Calculates readonly automatically from readonly attributes
     b.optional :readonly
 
-    ## Inputs
-    # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
-
-    ## full_messages_for
-    # If you want to display the full error message for the attribute, you can
-    # use the component :full_error, like:
-    #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
+    b.use :label, class: 'block mb-2 text-sm font-medium text-gray-900',
+          error_class: '!text-red-700'
+    b.use :input, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                  focus:border-blue-500 block w-full p-2.5',
+          error_class: '!bg-red-50 !border-red-500 !text-red-900 !placeholder-red-700
+                  !focus:ring-red-500 !focus:border-red-500'
+    # b.use :error, wrap_with: { tag: :span, class: 'mt-2 text-sm text-red-600' }
+    b.use :full_error, wrap_with: { tag: :div, class: 'mt-2 text-sm text-red-600' }
+    b.use :hint, wrap_with: { tag: :div, class: 'mt-2 text-sm text-gray-500' }
   end
 
-  # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.wrappers :vertical_boolean, tag: 'div', class: 'flex mb-4' do |b|
+    b.use :html5
+    b.wrapper tag: 'div', class: 'flex items-center h-5' do |ba|
+      ba.use :input, class: 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2'
+    end
 
-  # Define the way to render check boxes / radio buttons with labels.
-  # Defaults to :nested for bootstrap config.
-  #   inline: input + label
-  #   nested: label > input
-  config.boolean_style = :nested
+    b.wrapper tag: 'div', class: 'ml-2 text-sm' do |bb|
+      bb.use :label, class: 'font-medium text-gray-900', error_class: '!text-red-700'
+      bb.use :hint, wrap_with: { tag: 'p', class: 'text-xs font-normal text-gray-500' }
+      bb.use :full_error, wrap_with: { tag: :div, class: 'mt-2 text-sm text-red-600' }
+    end
+  end
 
-  # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -136,7 +129,9 @@ SimpleForm.setup do |config|
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
-  # config.wrapper_mappings = { string: :prepend }
+  config.wrapper_mappings = {
+    boolean: :vertical_boolean
+  }
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.
