@@ -1,11 +1,9 @@
 <%= content_tag :section, id: dom_id(search), class: 'mx-auto max-w-screen-xl' do %>
   <div class="py-8 px-4 max-w-2xl lg:py-16">
     <%= simple_form_for search do |f| %>
-      <div class="gap-4 sm:gap-6">
-        <%= f.input :name, placeholder: 'np: Mieszkania OLX Białystok' %>
-        <%= f.input :uri, placeholder: 'np: https://www.olx.pl/nieruchomosci/mieszkania/bialystok/' %>
-        <%= f.input :status, collection: Search.statuses.keys, prompt: 'Wybierz status' %>
-      </div>
+      <%= f.input :name, placeholder: 'np: Mieszkania OLX Białystok' %>
+      <%= f.input :uri, placeholder: 'np: https://www.olx.pl/nieruchomosci/mieszkania/bialystok/' %>
+      <%= f.input :status, collection: Search.statuses.keys, prompt: 'Wybierz status' %>
       <%= f.submit class: 'inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800' %>
     <% end %>
   </div>
