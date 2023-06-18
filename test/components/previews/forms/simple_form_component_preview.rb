@@ -14,5 +14,10 @@ module Forms
       end
       render '/forms/simple_form_component', form:
     end
+
+    def with_grid
+      form = Forms::Form.new
+      render '/forms/grid_simple_form_component', form:
+    end
   end
 end

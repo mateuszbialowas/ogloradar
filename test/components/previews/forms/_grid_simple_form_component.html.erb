@@ -1,0 +1,19 @@
+<%= simple_form_for form, url: '/your_url_here', method: :post, html: {class: 'grid grid-cols-2 gap-4'} do |f| %>
+  <%= f.input :full_name, hint: 'You cannot change your full_name.', required: true %>
+  <%= f.input :username %>
+  <%= f.input :password,    as: :password %>
+  <%= f.input :email,       as: :email %>
+  <%= f.input :description, as: :text %>
+
+
+  <%= content_tag :div do %>
+    <%= f.label :roles %>
+    <%= f.input :admin,       as: :boolean %>
+    <%= f.input :super_admin, as: :boolean, hint: 'Only super admins can do this.' %>
+  <% end %>
+
+  <%= f.input :created_at,  as: :default_date %>
+  <%= f.input :updated_at,  as: :default_date_time, hint: 'You cannot change your updated_at.' %>
+
+  <%= f.button :submit %>
+<% end %>

@@ -9,5 +9,8 @@
   <%= f.input :admin,       as: :boolean %>
   <%= f.input :super_admin, as: :boolean, hint: 'Only super admins can do this.' %>
 
+  <%= f.input :created_at,  as: :default_date %>
+  <%= f.input :updated_at,  as: :default_date_time, hint: 'You cannot change your updated_at.' %>
+
   <%= f.button :submit %>
 <% end %>

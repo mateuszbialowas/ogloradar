@@ -8,7 +8,8 @@ module.exports = {
         './app/components/**/*.rb',
         './app/form_builders/**/*.rb',
         "./node_modules/flowbite/**/*.js",
-        "./config/initializers/simple_form.rb"
+        "./config/initializers/simple_form.rb",
+        "./test/components/previews/**/*.html.erb",
     ],
 
     theme: {

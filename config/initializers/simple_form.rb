@@ -3,7 +3,7 @@
 SimpleForm.setup do |config|
   # default_wrapper
   config.default_wrapper = :default
-  config.wrappers :default, class: 'mb-4' do |b|
+  config.wrappers :default do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -12,29 +12,11 @@ SimpleForm.setup do |config|
 
     b.use :html5
     b.use :placeholder
-
-    ## Optional extensions
-    # They are disabled unless you pass `f.input EXTENSION_NAME => true`
-    # to the input. If so, they will retrieve the values from the model
-    # if any exists. If you want to enable any of those
-    # extensions by default, you can change `b.optional` to `b.use`.
-
-    # Calculates maxlength from length validations for string inputs
-    # and/or database column lengths
     b.optional :maxlength
-
-    # Calculate minlength from length validations for string inputs
     b.optional :minlength
-
-    # Calculates pattern from format validations for string inputs
     b.optional :pattern
-
-    # Calculates min and max from length validations for numeric inputs
     b.optional :min_max
-
-    # Calculates readonly automatically from readonly attributes
     b.optional :readonly
-
     b.use :label, class: 'block mb-2 text-sm font-medium text-gray-900',
                   error_class: '!text-red-700'
     b.use :input, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
@@ -65,7 +47,7 @@ SimpleForm.setup do |config|
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
   # Use :to_sentence to list all errors for each field.
-  # config.error_method = :first
+  config.error_method = :to_sentence
 
   # Default tag used for error notification helper.
   config.error_notification_tag = :div
@@ -93,14 +75,12 @@ SimpleForm.setup do |config|
   # config.item_wrapper_class = nil
 
   # How the label text should be generated altogether with the required text.
-  config.label_text = lambda { |label, required, explicit_label| "#{label} #{required}" }
+  config.label_text = ->(label, required, _explicit_label) { "#{label} #{required}" }
 
   # You can define the class to use on all labels. Default is nil.
-  # config.label_class = nil
+  config.label_class = 'block mb-2 text-sm font-medium text-gray-900'
 
-  # You can define the default class to be used on forms. Can be overridden
-  # with `html: { :class }`. Defaulting to none.
-  # config.default_form_class = nil
+  config.default_form_class = 'flex flex-col space-y-4'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
@@ -158,4 +138,5 @@ SimpleForm.setup do |config|
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
+  config.custom_inputs_namespaces << 'CustomInputs'
 end
