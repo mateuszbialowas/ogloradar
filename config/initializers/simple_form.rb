@@ -44,10 +44,10 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     b.use :label, class: 'block mb-2 text-sm font-medium text-gray-900',
-          error_class: '!text-red-700'
+                  error_class: '!text-red-700'
     b.use :input, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
                   focus:border-blue-500 block w-full p-2.5',
-          error_class: '!bg-red-50 !border-red-500 !text-red-900 !placeholder-red-700
+                  error_class: '!bg-red-50 !border-red-500 !text-red-900 !placeholder-red-700
                   !focus:ring-red-500 !focus:border-red-500'
     # b.use :error, wrap_with: { tag: :span, class: 'mt-2 text-sm text-red-600' }
     b.use :full_error, wrap_with: { tag: :div, class: 'mt-2 text-sm text-red-600' }
