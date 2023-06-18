@@ -6,7 +6,10 @@ module.exports = {
         './app/javascript/**/*.js',
         './app/components/**/*.erb',
         './app/components/**/*.rb',
-        "./node_modules/flowbite/**/*.js"
+        './app/form_builders/**/*.rb',
+        "./node_modules/flowbite/**/*.js",
+        "./config/initializers/simple_form.rb",
+        "./test/components/previews/**/*.html.erb",
     ],
 
     theme: {
