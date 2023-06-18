@@ -137,11 +137,8 @@ SimpleForm.setup do |config|
   # override default inputs.
   # config.custom_inputs_namespaces << "CustomInputs"
 
-  # Default priority for time_zone inputs.
-  # config.time_zone_priority = nil
-
-  # Default priority for country inputs.
-  # config.country_priority = nil
+  config.time_zone_priority = /Poland/
+  config.country_priority = /Poland/
 
   # When false, do not use translations for labels.
   # config.translate_labels = true
