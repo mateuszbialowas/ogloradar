@@ -26,6 +26,7 @@ Rails/I18nLocaleTexts:
 Metrics/BlockLength:
   Exclude:
     - "config/environments/development.rb"
+    - "config/initializers/simple_form.rb"
 
 Layout/LineLength:
   Exclude:
