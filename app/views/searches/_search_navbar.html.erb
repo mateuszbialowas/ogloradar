@@ -3,12 +3,12 @@
     <li>
       <%= link_to 'Wyszukiwanie', search_path(search),
                   class: "inline-block hover:text-primary-700 font-medium p-3 px-4 hover:border-blue-600 hover:border-b-2
-                  #{"border-blue-600 border-b-2 text-primary-700" if request.path =~ /\/searches\/\d+$/ }" %>
+                  #{'border-blue-600 border-b-2 text-primary-700' if %r{/searches/\d+$}.match?(request.path)}" %>
     </li>
     <li>
       <%= link_to 'Produkty', search_products_path(search),
                   class: "inline-block hover:text-primary-700 font-medium p-3 px-4 hover:border-blue-600 hover:border-b-2
-                  #{"border-blue-600 border-b-2 text-primary-700" if request.path =~ /\/searches\/\d+\/products$/ }" %>
+                  #{'border-blue-600 border-b-2 text-primary-700' if %r{/searches/\d+/products$}.match?(request.path)}" %>
     </li>
   </ul>
 </nav>
