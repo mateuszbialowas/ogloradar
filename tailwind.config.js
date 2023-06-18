@@ -6,6 +6,7 @@ module.exports = {
         './app/javascript/**/*.js',
         './app/components/**/*.erb',
         './app/components/**/*.rb',
+        './app/form_builders/**/*.rb',
         "./node_modules/flowbite/**/*.js"
     ],
 
