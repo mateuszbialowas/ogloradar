@@ -1,16 +1,19 @@
 <%= simple_form_for form, url: '/your_url_here', method: :post do |f| %>
+  <%= f.input :age, collection: 18..60, prompt: "Select your age", selected: 22, as: :slim_select %>
+
   <%= f.input :full_name, hint: 'You cannot change your full_name.' %>
   <%= f.input :username %>
   <%= f.input :password, as: :password %>
   <%= f.input :email, as: :email %>
   <%= f.input :description, as: :text %>
 
-
   <%= f.input :admin, as: :boolean %>
   <%= f.input :super_admin, as: :boolean, hint: 'Only super admins can do this.' %>
 
   <%= f.input :created_at, as: :default_date %>
   <%= f.input :updated_at, as: :default_date_time, hint: 'You cannot change your updated_at.' %>
+
+  <%#= f.input :age, collection: 18..60, prompt: "Select your age", selected: 22, as: :slim_select %>
 
   <%= f.button :submit %>
 <% end %>

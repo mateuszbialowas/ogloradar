@@ -9,3 +9,6 @@ application.register("flash-component", FlashComponentController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import SlimSelectInputController from "./slim_select_input_controller"
+application.register("slim-select-input", SlimSelectInputController)
