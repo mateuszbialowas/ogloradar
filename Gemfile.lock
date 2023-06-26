@@ -86,7 +86,7 @@ GEM
       turbo-rails
       view_component (>= 2.54.0)
       zeitwerk (>= 2.6.2)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     better_html (2.0.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -485,7 +485,7 @@ PLATFORMS
 DEPENDENCIES
   actioncable
   avo
-  bcrypt (~> 3.1.7)
+  bcrypt (~> 3.1.19)
   bootsnap
   brakeman
   breadcrumbs_on_rails
